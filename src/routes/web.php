@@ -30,3 +30,7 @@ Route::prefix('/account')->name('account.')->group(function () {
     Route::get('/calendars', 'CalendarsController@index')->name('calendars');
     Route::post('/calendars/sync', 'CalendarsController@sync')->name('calendars.sync');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
