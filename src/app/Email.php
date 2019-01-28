@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Email extends Model
 {
-
     /**
      * Indicates if the model should be timestamped.
      *
@@ -31,7 +30,7 @@ class Email extends Model
      */
     public function calendar()
     {
-        return $this->belongsTo(Calendar::class);
+        return $this->hasOne(Calendar::class);
     }
 
     /**

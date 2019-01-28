@@ -22,4 +22,14 @@ class Company extends Model
     {
         return $this->hasMany(Email::class);
     }
+
+    /**
+     * Get all owner of the company.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
