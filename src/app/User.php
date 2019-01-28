@@ -31,10 +31,20 @@ class User extends Authenticatable
     /**
      * Get all of the users emails
      *
-     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function emails()
     {
-        return $this->hasMany(App\Email::class);
+        return $this->hasMany(Email::class);
+    }
+
+    /**
+     * Retrive the user's Company
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function company()
+    {
+        return $this->belongsTo(Companies::class);
     }
 }

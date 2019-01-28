@@ -6,13 +6,51 @@ use Illuminate\Database\Eloquent\Model;
 
 class Email extends Model
 {
+
     /**
-     * Retrive the owner of this email
+     * Indicates if the model should be timestamped.
      *
-     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * Return the owner of the email.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
-        return $this->belongsTo(App\User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the associated calendar for this email.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function calendar()
+    {
+        return $this->belongsTo(Calendar::class);
+    }
+
+    /**
+     * Get the associated company
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    /**
+     * Retrieve timeslots associated with emails
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function timeslots()
+    {
+        return $this->belongsToMany(TimeSlot::class);
     }
 }
