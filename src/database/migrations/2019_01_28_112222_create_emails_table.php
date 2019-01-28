@@ -20,7 +20,7 @@ class CreateEmailsTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
 
             $table->unsignedInteger('user_id')->references('id')->on('users');
-            $table->unsignedInteger('company_id')->references('id')->on('companies');
+            $table->unsignedInteger('company_id')->nullable()->references('id')->on('companies');
         });
     }
 
