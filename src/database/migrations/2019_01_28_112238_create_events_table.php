@@ -17,7 +17,7 @@ class CreateEventsTable extends Migration
             $table->increments('id');
 
             $table->string('title');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->boolean('public')->default(false);
 
             $table->timestamp('from')->nullable();
