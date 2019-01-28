@@ -7,6 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'public' => 'boolean',
+        'from' => 'datetime',
+        'to' => 'datetime',
+        'ended_at' => 'datetime'
+    ];
+
+    /**
      * Get all of the users emails
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -7,7 +7,6 @@ use Illuminate\Notifications\Notifiable;
 
 class Email extends Model
 {
-
     use Notifiable;
 
     /**
@@ -44,6 +43,16 @@ class Email extends Model
     public function calendar()
     {
         return $this->hasOne(Calendar::class);
+    }
+
+    /**
+     * Get the associated company
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'creator_id');
     }
 
     /**
