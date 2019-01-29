@@ -15,14 +15,18 @@ Route::get('/', 'WelcomeController');
 
 Route::resource('events', 'EventsController');
 
-Route::prefix('/survey')->name('surveys.')->group(function () {
+Route::prefix('/surveys')->name('surveys.')->group(function () {
     Route::get('/{survey}', 'SurveysController@show')->name('show');
     Route::post('/{survey}', 'SurveysController@answer')->name('answer');
 });
 
-Route::prefix('/account')->name('account.')->group(function () {
-    Route::get('/settings', 'SettingsController@index')->name('settings');
-    Route::patch('/settings', 'SettingsController@update')->name('settings.update');
+Route::prefix('/accounts')->name('account.')->group(function () {
+    Route::get('/settings/edit', 'SettingsController@edit')->name('settings');
+    Route::patch('/settings/edit', 'SettingsController@update')->name('settings.update');
+
+	Route::resource('emails', 'EmailsController')->only([
+		'store', 'update', 'destroy'
+	]);
 
     Route::get('/users', 'UsersController@index')->name('users');
     Route::patch('/users', 'UsersController@update')->name('users.update');

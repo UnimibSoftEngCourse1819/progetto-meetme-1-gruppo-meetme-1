@@ -35,10 +35,30 @@
 	  	</div>
 	<button class="ui button" type="submit">Update</button>
 	</form>
+	<hr>
 
+	<form class="ui form" method="POST" action='{{url("accounts/emails")}}'>
+		{{ csrf_field() }}
+		<div class="field">
+			<label>Email</label>
+	    	<input type="text" name="email" placeholder="email">
+	 	</div>
+	  	<button class="positive ui button" type="submit">Add email</button>
+	</form>
+	<hr>
 	<p>Current emails:</p>
 	@foreach($emails->all() as $em)
-		<form method="POST" action="{{url("accounts/emails/")}}/'+em.id+'/delete"><input type="hidden" name="_method" value="DELETE">{{ csrf_field() }} <button type="submit"> delete</button></form>
-		<p>{{$em->email}}</p>
+
+		<form class="ui form" method="POST" action="{{url('accounts/emails')}}/{{$em->id}}">
+			{{ csrf_field() }}
+			{{ method_field('PATCH') }}
+		  <div class="field">
+		    <input type="text" name="email" value="{{$em->email}}">
+		  </div>
+		  <button class="ui button" type="submit">update</button>
+		</form>
+
+		<form method="POST" action="{{url("accounts/emails/")}}/{{$em->id}}"><input type="hidden" name="_method" value="DELETE">{{ csrf_field() }} <button class="negative ui button" type="submit">delete</button></form>
+		<hr>
 	@endforeach
 @endsection
