@@ -17,7 +17,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!---Semantic ui-->
+    @yield('custom-styles')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+    <style>
+
+    </style>
 </head>
 <body>
     @include('layouts.partials.header')
@@ -28,5 +32,8 @@
 
     @include('layouts.partials.footer')
     @yield('custom-scripts')
+    <script>
+
+    </script>
 </body>
 </html>
