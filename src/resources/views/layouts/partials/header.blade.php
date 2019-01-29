@@ -1,15 +1,26 @@
-<div class="ui menu">
-  <a class="item" href="{{ url('/') }}">Meetme</a>
-  <div class="right menu">
-    @auth
-        <a class="item" href="{{ url('/home') }}">Home</a>
-        @else
-            <a class="item" href="{{ route('login') }}">Login</a>
+<div class="ui borderless secondary pointing small menu">
+    <div class="item"><img src="/images/logo.png"></div>
+    <a class="active item" href="{{ url('/') }}">MeetMe</a>
+    <div class="right menu">
+        <div class="stretched collapsed row">
+            @auth
+                <a class="item" href="{{ url('/home') }}">Dashboard</a>
+                <a class="item" href="{{ route('events.index') }}">Eventi</a>
 
-            @if (Route::has('register'))
-                <a class="item"href="{{ route('register') }}">Register</a>
-            @endif
-    @endauth
+            @else
+                @if (Route::has('register'))
+                    <div class="item">
 
-  </div>
+                        <a href="{{ route('register') }}" class="ui compact primary button">Sign up</a>
+
+                    </div>
+                @endif
+
+                <di class="item">
+                    <a href="{{ route('login') }}" class="ui compact button">Log-in</a>
+
+                </div>
+            @endauth
+        </div>
+    </div>
 </div>
