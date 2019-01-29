@@ -8,6 +8,7 @@
                 <div class="right menu">
                     <a class="item" href="{{ url('/home') }}">Dashboard</a>
                     <a class="item" href="{{ route('events.index') }}">Eventi</a>
+                    <a class="item" href="{{ route('account.settings') }}">Settings</a>
                     <a class="item" href="{{ route('logout') }}" onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();"> Logout </a>
 
