@@ -8,13 +8,24 @@ use Illuminate\Http\Request;
 class EventsController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        request()->user()->load('emails.events');
+        return view('events.history');
     }
 
     /**
@@ -24,7 +35,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.create');
     }
 
     /**
@@ -35,7 +46,9 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate
+        // Create event
+        // Save partecipants (inform with email)
     }
 
     /**
@@ -46,7 +59,8 @@ class EventsController extends Controller
      */
     public function show(Event $event)
     {
-        // $event = Event::find($id);
+        $event->load('creator.user', 'partecipants.user');
+        return view('events.show', compact('event'));
     }
 
     /**
