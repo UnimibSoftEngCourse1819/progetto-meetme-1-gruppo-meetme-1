@@ -4,7 +4,6 @@
         </div>
     <a class="active item" href="{{ url('/') }}">MeetMe</a>
         <div class="right menu">
-        <div class="stretched collapsed row">
             @auth
                 <div class="right menu">
                     <a class="item" href="{{ url('/home') }}">Dashboard</a>
@@ -27,7 +26,7 @@
 
                 </div>
             @endauth
-        </div>
+
         </div>
 
 </div>
