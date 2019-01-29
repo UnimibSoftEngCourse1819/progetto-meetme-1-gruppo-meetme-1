@@ -1,28 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('My Events') }}</div>
+<div class="ui text container segment padded">
+    <div class="ui header">
+        Event: {{ $event->title }} @if (! $event->public)(Private)@endif
+        <div class="sub header">{{ $event->created_at->diffForHumans() }}</div>
+    </div>
+    <div><b>Description:</b> {{ $event->description }}</div>
 
-                <div class="card-body">
-                    <h2>Event: {{ $event->title }} @if (! $event->public)(Private)@endif</h2>
-                    <p><small>{{ $event->created_at->diffForHumans() }}</small></p>
-                    <p>Description: {{ $event->description }}</p>
-                    <p>From: {{ $event->from }}</p>
-                    <p>To: {{ $event->to }}</p>
-                    <p>Creator: {{ $event->creator->user }}</p>
-                    <p>Invited ({{ $event->partecipants()->count() }}):<p>
-                    <ul>
-                        @foreach ($event->partecipants as $partecipant)
-                        <li>{{ $partecipant->user->first_name }} &lt;{{ $partecipant->email }}&gt;</li>
-                        @endforeach
-                    </ul>
-                </div>
+    @if ($event->from)
+        <div><b>From:</b> {{ $event->from->format('H:i \o\n d M Y') }}</div>
+    @else
+        <div><b>To:</b> Da definire</div>
+    @endif
+
+    @if ($event->to)
+        <div><b>To:</b> {{ $event->to->format('H:i \o\n d M Y') }}</div>
+    @else
+        <div><b>To:</b> Da definire</div>
+    @endif
+
+    <div><b>Creator:</b> {{ $event->creator->user->first_name }} {{ $event->creator->user->last_name }} ({{ $event->creator->user->username }})</div>
+
+    <div><b>Invitati ({{ $event->partecipants()->count() }}): </b><div>
+    <div class="ui celled relaxed list">
+        @foreach ($event->partecipants as $partecipant)
+            <div class="item">
+
+                <div class="header">{{ $partecipant->user->first_name }} {{ $partecipant->user->last_name }}</div>
+                <div class="description"><span class="ui blue tiny label">Email</span> {{ $partecipant->email }}</div>
             </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection
