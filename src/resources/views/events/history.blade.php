@@ -7,30 +7,25 @@
     @foreach (request()->user()->emails as $email)
         <div class="ui segment">
             <div class="ui small header"> <i class="big envelope icon"> </i> </span> {{ $email->email }}</div>
-            <ul>
+            <div class ="ui list">
                 @forelse ($email->events as $event)
-                    <li>
-                        <div class ="ui list">
-                            <div class="item">
-                                <div class="header">
-                                     <a href="{{ route('events.show', ['id' => $event->id]) }}">
-                                         {{ $event->title }}
-                                         @if ($event->public)
-                                             <span class="ui mini blue label">Public</span>
-                                         @else
-                                             <span class="ui mini orange label">Private</span>
-                                         @endif
-
-                                      </a>
-                                </div>
-                            {{ $event->created_at->diffForHumans() }}
-                            </div>
+                    <div class="item">
+                        <div class="header">
+                             <a href="{{ route('events.show', ['id' => $event->id]) }}">
+                                 {{ $event->title }}
+                                 @if ($event->public)
+                                     <span class="ui mini blue label">Public</span>
+                                 @else
+                                     <span class="ui mini orange label">Private</span>
+                                 @endif
+                             </a>
                         </div>
-                    </li>
+                        {{ $event->created_at->diffForHumans() }}
+                    </div>
                 @empty
                     <p>No events.</p>
                 @endforelse
-            </ul>
+            </div>
         </div>
     @endforeach
 </div>
