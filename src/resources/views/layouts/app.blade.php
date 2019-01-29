@@ -20,11 +20,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        @include('layouts.partials.header')
-        <main class="container">
-            @yield('content')
-        </main>
-    </div>
+    @include('layouts.partials.header')
+
+    <main class="container">
+        @yield('content')
+    </main>
+
+    @include('layouts.partials.footer')
+    @yield('custom-scripts')
 </body>
 </html>
