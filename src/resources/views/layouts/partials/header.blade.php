@@ -1,6 +1,6 @@
 <div class="ui secondary pointing small menu">
     <div class="item">
-        <img src="/images/logo.png">
+        <img src="{{ asset('img/logo.jpg') }}">
         </div>
     <a class="active item" href="{{ url('/') }}">MeetMe</a>
         <div class="right menu">
