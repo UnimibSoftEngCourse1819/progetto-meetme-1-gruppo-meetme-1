@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Email;
+use App\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -28,6 +29,8 @@ class HomeController extends Controller
 
         /*$count_events = Email::groupBy('user_id')->count();
         $count_events = auth()->user()->emails->each()->('emails.partecipate');*/
+        auth()->user()->load('emails');
+
         $part_events = auth()->user()->emails->reduce(function ($carry, $email) {
             return $carry + $email->partecipate()->count();
         });
@@ -35,13 +38,28 @@ class HomeController extends Controller
             return $carry + $email->events()->count();
         });
 
+        $events = \DB::table( 'events' )
+            ->join('email_event', 'events.id', '=', 'email_event.event_id')
+            ->join('emails', 'emails.user_id', '=', 'email_event.email_id')
+            ->where('emails.user_id', auth()->user()->id)
+            //->select('events.title', 'events.created_at')
+            ->orderBy('created_at', 'DESC')
+            ->limit(5)
+            ->get();
 
-        /*$count_events = DB::table('emails')
-                    ->join('email_event', "emails.id", '=', 'email_event.event_id')
-                    ->groupBy('emails.user_id')
-                    ->count();*/
-        //dd($count_events);
+        $owned_event =  \DB::table( 'events' )
+            ->join('emails', 'emails.user_id', '=', 'events.creator_id')
+            ->where('events.creator_id', auth()->user()->id)
+            //->select('events.title', 'events.created_at')
+            ->orderBy('created_at', 'DESC')
+            ->limit(5)
+            ->get();
+        /**
+         * auth()->user()->events()->orderBy('created_at', 'DESC')->limit(5)->get();
+         * auth()->user()->events()->latest()->get();
+         */
 
-        return view('home', compact('part_events','created_events'));
+
+        return view('home', compact('part_events','created_events', 'events', 'owned_event'));
     }
 }
