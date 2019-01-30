@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-	<div class="ui two column text centered grid">
+	<div class="ui stackable two column text centered grid">
 		<div class="column">
 			<form class="ui form" method="POST" action="">
 				{{ csrf_field() }}
@@ -43,7 +43,7 @@
 		<div class="ui section divider"></div>
 	</div>
 
-	<div class="ui four column text centered grid">
+	<div class="ui stackable four column text centered grid">
 		<div class="column">
 			<form class="ui form" method="POST" action='{{url("accounts/emails")}}'>
 				{{ csrf_field() }}
@@ -56,7 +56,7 @@
 				</div>
 			</form>
 		</div>
-		<div class="column ui form">
+		<div class="ui stackable column form">
 			<div class="field">
 				<label>Registered emails:</label>
 				@foreach($emails->all() as $em)
