@@ -44,7 +44,7 @@ class EmailsController extends Controller
         ]);
 
         $email->update($request->only('email'));
-        return back()->with('status', 'Email updated!');
+        return back()->with('message', 'Email updated!');
     }
 
     /**

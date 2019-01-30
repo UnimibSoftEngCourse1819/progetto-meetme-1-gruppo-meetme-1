@@ -5,10 +5,24 @@
 			<form class="ui form" method="POST" action="">
 				{{ csrf_field() }}
 				{{ method_field('PATCH') }}
+				@if(session()->has('message'))
+					<div class="ui positive message">
+					  <i class="close icon"></i>
+						{{ session()->get('message')}}
+					</div>
+				@endif
 				@if ($errors->any())
-					@foreach ($errors->all() as $err)
-						<p>{{ $err }}</p>
-					@endforeach
+					<div class="ui negative message">
+						 <i class="close icon"></i>
+						  <div class="header">
+						    There were some errors with your submission
+						  </div>
+						<ul class="list">
+							@foreach ($errors->all() as $err)
+								<li>{{ $err }}</li>
+							@endforeach
+						</ul>
+					</div>
 				@endif
 
 				<div class="field">
@@ -83,4 +97,15 @@
 			</div>
 		</div>
 	</div>
+@endsection
+@section('custom-scripts')
+<script type="text/javascript">
+	$('.message .close')
+	  .on('click', function() {
+	    $(this)
+	      .closest('.message')
+	      .transition('fade')
+	      ;
+	  });
+</script>
 @endsection
