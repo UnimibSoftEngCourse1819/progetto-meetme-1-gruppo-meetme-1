@@ -46,6 +46,16 @@ class Email extends Model
     }
 
     /**
+     * Get all the events where the user has been invited.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function partecipate()
+    {
+        return $this->belongsToMany(Event::class);
+    }
+
+    /**
      * Get the associated company
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
