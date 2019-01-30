@@ -45,7 +45,9 @@
                 padding-top: 5rem;
             }
         }
-
+        .container{
+            padding-top: 1rem;
+        }
         #mobile_menu{
             padding-top: 3.54rem;
         }
