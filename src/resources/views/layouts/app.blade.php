@@ -36,54 +36,46 @@
             border: 0
         }
 
-        @media (max-width: 991px) {
-            #menu-grid {
-                width: 100%;
+        #desktop-menu {
+            background: white;
+        }
+
+        @media (max-width: 990px) {
+            .pusher {
+                padding-top: 5rem;
             }
 
-            .pusher{
-                padding-top: 5rem;
+            #desktop-menu {
+                display: none;
             }
         }
 
-        #mobile_menu{
-            padding-top: 3.54rem;
+        @media (min-width: 991px) {
+            .pusher {
+                padding-top: 5rem;
+            }
+
+            #mobile-menu {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
     @include('layouts.partials.header')
 
-    <div class="ui pushable segment">
-        <div class="ui sidebar vertical menu" id="mobile_menu">
-            <a class="active item" href="{{ url('/') }}">Home</a>
-            @auth
-                <a class="item" href="{{ url('/home') }}">Dashboard</a>
-                <a class="item" href="{{ route('events.index') }}">Eventi</a>
-                <a class="item" href="{{ route('account.settings') }}">Settings</a>
-                <a class="item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-            @else
-                <a href="{{ route('register') }}" class="item">Sign up</a>
-                <a href="{{ route('login') }}" class="item">Log-in</a>
-            @endauth
-        </div>
-        <div class="pusher">
-            <main class="container">
-                @yield('content')
-            </main>
-        </div>
+    <div class="pusher">
+        @yield('content')
     </div>
 
     @include('layouts.partials.footer')
     @yield('custom-scripts')
     <script>
-        $('.ui.sidebar').sidebar({
-            context: $('.ui.pushable.segment'),
-            transition: 'overlay'
-        }).sidebar('attach events', '#mobile_item');
+        $('#toc').sidebar({
+            dimPage: true,
+            transition: 'overlay',
+            mobileTransition: 'uncover'
+        }).sidebar('attach events', '.launch.item');
     </script>
 </body>
 </html>
