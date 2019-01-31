@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="ui text container segment padded">
+    @if (isset($error))
+        <div class="ui error message">
+            <li>{{ $error }}</li>
+        </div>
+    @endif
     <div class="ui header">
         Event: {{ $event->title }} @if (! $event->public)(Private)@endif
         <div class=" right floated ui labeled button" tabindex="0">

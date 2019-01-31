@@ -58,10 +58,12 @@ class EventsController extends Controller
 
         $models = $this->mapModels($partecipants);
 
-        $unregistered = $models->filter();
         $invited = $models->filter(function ($model) {
             dump($model);
             return $model !== null;
+        });
+        $unregistered = $models->filter(function ($model) {
+            return $model === null;
         });
 
         $event->partecipants()->syncWithoutDetaching($invited->pluck('id'));
@@ -182,10 +184,10 @@ class EventsController extends Controller
     public function destroy(Event $event)
     {
         if ($event->creator()->user()->where('id', auth()->user()->id)->count == 0) {
-            return redirect()->back()->with(['error' => 'You do not own this event.']);
+            return redirect()->back()->with('error', 'You do not own this event.');
         }
 
-        $event->destroy();
+        $event->delete();
         return redirect()->route('events.index');
     }
 }
