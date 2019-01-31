@@ -42,23 +42,21 @@ class SettingsController extends Controller
      */
     public function update(Request $request, User $user)
     {
-    	$data = $this->validate(request(),[
+    	$data = $this->validate(request(), [
     		'first_name' => 'required',
     		'last_name' => 'required',
-            'oldPassword' => 'required',
+            'oldPassword' => 'required_with:password',
             'password' => 'nullable|required_with:oldPassword|confirmed|min:6',
     	]);
 
-        if(request()->has('oldPassword'))
-            if(Hash::check(request('oldPassword'),$request->user()->password))
-            {
+        if (request()->has('oldPassword')) {
+            if (Hash::check(request('oldPassword'), $request->user()->password)) {
                 request()->user()->password = bcrypt(request('password'));
             }
+        }
+
         request()->user()->update(request()->only('first_name', 'last_name'));
-
-
         return back();
-
     }
 
 }

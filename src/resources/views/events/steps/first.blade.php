@@ -1,7 +1,35 @@
+@if ($errors->any())
+    <div class="ui error visible message">
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </div>
+@endif
+
+{{-- Title --}}
+<div class="required field {{ $errors->has('email') ? 'error' : '' }}">
+    <label>{{ __('Account') }}</label>
+    <select name="account">
+        @foreach (auth()->user()->emails as $email)
+            @if ($email->id == old('account'))
+                <option value="{{ $email->id }}" selected>{{ $email->email }}</option>
+            @else
+                <option value="{{ $email->id }}">{{ $email->email }}</option>
+            @endif
+        @endforeach
+    </select>
+
+    @if ($errors->has('account'))
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $errors->first('account') }}</strong>
+        </span>
+    @endif
+</div>
+
 {{-- Title --}}
 <div class="required field {{ $errors->has('title') ? 'error' : '' }}">
     <label>{{ __('Title') }}</label>
-    <input id="title" type="text" name="title" value="{{ old('title') }}" required autofocus>
+    <input id="title" type="text" name="title" value="{{ old('title') }}">
 
     @if ($errors->has('title'))
         <span class="invalid-feedback" role="alert">
@@ -13,8 +41,7 @@
 {{-- Description --}}
 <div class="required field {{ $errors->has('description') ? 'error' : '' }}">
     <label for="description">{{ __('Description') }}</label>
-    <textarea id="description" rows="4" name="description" required>{{ old('username') }}</textarea>
-
+    <textarea id="description" rows="4" name="description">{{ old('description') }}</textarea>
 
     @if ($errors->has('description'))
         <span class="invalid-feedback" role="alert">
@@ -73,4 +100,9 @@
     @endif
 </div>
 
-<div class="ui button next-step" data-next="#timeslots-steps">Next step</div>
+<div class="ui animated black right floated button next-step" data-next="#timeslots-step">
+    <div class="visible content">Choose Time Slots</div>
+    <div class="hidden content">
+        <i class="right arrow icon"></i>
+    </div>
+</div>
