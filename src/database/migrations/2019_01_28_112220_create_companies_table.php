@@ -20,7 +20,9 @@ class CreateCompaniesTable extends Migration
             $table->text('description')->nullable();
             $table->string('address')->nullable();
 
-            $table->unsignedInteger('user_id')->references('id')->on('users');
+            $table->unsignedInteger('user_id');
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

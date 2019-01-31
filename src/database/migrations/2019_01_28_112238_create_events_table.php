@@ -26,7 +26,9 @@ class CreateEventsTable extends Migration
             $table->timestamp('ended_at')->nullable();
             $table->timestamps();
 
-            $table->unsignedInteger('creator_id')->references('id')->on('emails');
+            $table->unsignedInteger('creator_id');
+
+            $table->foreign('creator_id')->references('creator_id')->on('emails');
         });
     }
 

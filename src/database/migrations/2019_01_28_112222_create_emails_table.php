@@ -19,8 +19,11 @@ class CreateEmailsTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
 
-            $table->unsignedInteger('user_id')->references('id')->on('users');
-            $table->unsignedInteger('company_id')->nullable()->references('id')->on('companies');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('company_id')->nullable();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('company_id')->references('id')->on('companies');
         });
     }
 

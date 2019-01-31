@@ -16,8 +16,11 @@ class CreateEmailEventTable extends Migration
         Schema::create('email_event', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('email_id')->references('id')->on('emails');
-            $table->unsignedInteger('event_id')->references('id')->on('events');
+            $table->unsignedInteger('email_id');
+            $table->unsignedInteger('event_id');
+
+            $table->foreign('email_id')->references('id')->on('emails');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 

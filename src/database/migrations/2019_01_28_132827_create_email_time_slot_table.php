@@ -20,7 +20,7 @@ class CreateEmailTimeSlotTable extends Migration
             $table->unsignedInteger('time_slot_id');
 
             $table->foreign('email_id')->references('id')->on('emails');
-            $table->foreign('time_slot_id')->references('id')->on('time_slots');
+            $table->foreign('time_slot_id')->references('id')->on('time_slots')->onDelete('cascade');
         });
     }
 
