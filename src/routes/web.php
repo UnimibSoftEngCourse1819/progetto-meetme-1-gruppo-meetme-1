@@ -14,6 +14,7 @@
 Route::get('/', 'WelcomeController');
 
 Route::resource('events', 'EventsController');
+Route::delete('/events/{event}/partecipants/{email}', 'PartecipantsController@destroy')->name('events.partecipants.delete');
 
 Route::prefix('/surveys')->name('surveys.')->group(function () {
     Route::get('/{survey}', 'SurveysController@show')->name('show');
