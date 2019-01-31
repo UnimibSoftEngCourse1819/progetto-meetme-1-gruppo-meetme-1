@@ -29,7 +29,7 @@
         .pushable.segment{
             margin: 0 !important;
             border: 0 !important;
-            box-shadow: none
+            box-shadow: none;
         }
 
         .mobile.row .ui.top.huge.fixed.borderless.menu {
@@ -39,14 +39,27 @@
         #desktop-menu {
             background: white;
         }
+        #mobile-menu{
+            height:2.5rem;
+        }
+
+        #menu-mobile-icon{
+            padding-top:2rem;
+        }
 
         @media (max-width: 990px) {
             .pusher {
-                padding-top: 5rem;
+                padding-top: 10rem;
             }
 
             #desktop-menu {
                 display: none;
+            }
+            #desktop-content{
+                display:none;
+            }
+            #mobile-content{
+                padding-top:0rem;
             }
         }
 
@@ -57,6 +70,12 @@
 
             #mobile-menu {
                 display: none;
+            }
+            #desktop-content{
+                padding-top:1rem;
+            }
+            #mobile-content{
+                display:none;
             }
         }
     </style>

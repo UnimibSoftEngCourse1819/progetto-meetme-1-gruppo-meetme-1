@@ -51,7 +51,9 @@
 </div>
 
 <div class="ui top fixed borderless main menu" id="mobile-menu">
-    <a class="launch icon item"><i class="content icon"></i></a>
+        <a class="launch icon item">
+            <i class="content icon"></i>
+        </a>
     <div class="header item">
         MeetMe
     </div>
