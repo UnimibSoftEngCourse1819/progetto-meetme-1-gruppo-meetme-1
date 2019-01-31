@@ -58,4 +58,14 @@ class Event extends Model
     {
         return $this->belongsTo(Email::class);
     }
+
+    /**
+     * Get the event timeslots relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function timeslots()
+    {
+        return $this->hasMany(TimeSlot::class);
+    }
 }
