@@ -16,7 +16,9 @@ class CreateCalendarsTable extends Migration
         Schema::create('calendars', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('email_id')->references('id')->on('emails');
+            $table->unsignedInteger('email_id');
+
+            $table->foreign('email_id')->references('email_id')->on('emails');
         });
     }
 

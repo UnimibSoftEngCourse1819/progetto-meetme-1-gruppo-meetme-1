@@ -10,9 +10,10 @@
     <div class="ui header">
         Event: {{ $event->title }} @if (! $event->public)(Private)@endif
         <div class=" right floated ui labeled button" tabindex="0">
-            <a href="{{route('events.destroy', ['event' => $event->id])}}" class= " tiny ui red  button">
-                <i class="eraser icon"></i> Elimina Evento
-            </a>
+            <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $event->id])}}">
+                <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
+                <button class="mini compact eraser ui red button" type="submit">Elimina Evento</button>
+            </form>
         </div>
         <div class="sub header">{{ $event->created_at->diffForHumans() }}</div>
     </div>

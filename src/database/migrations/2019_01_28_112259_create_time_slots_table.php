@@ -19,7 +19,9 @@ class CreateTimeSlotsTable extends Migration
             $table->timestamp('from')->useCurrent();
             $table->timestamp('to')->useCurrent();
 
-            $table->unsignedInteger('event_id')->references('id')->on('events');
+            $table->unsignedInteger('event_id');
+
+            $table->foreign('event_id')->references('id')->on('events');
         });
     }
 
