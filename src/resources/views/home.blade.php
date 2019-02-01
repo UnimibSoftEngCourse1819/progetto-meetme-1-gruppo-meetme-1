@@ -35,8 +35,8 @@
             <div class="eight wide column">
                 <div class="row">
                     @foreach ($owned_event as $owned)
-                        <li>{{ $owned->title }} {{ (new \Carbon\Carbon($owned->created_at))->diffForHumans() }}</li>
-                    @endforeach
+                            <li>{{ $owned->title }} {{ (new \Carbon\Carbon($owned->created_at))->diffForHumans() }}</li>
+                        @endforeach
                 </div>
             </div>
 
