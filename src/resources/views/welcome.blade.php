@@ -5,6 +5,7 @@
 
 <style>
 
+	@import url('https://fonts.googleapis.com/css?family=Jura');
 
 	.pushable .pusher {
 		padding-top: 0rem;
@@ -16,9 +17,8 @@
 	}
 
 	.parallax {
-		background-image : url({{asset('/img/wall2.jpg')}});
 		width: 100%;
-		height: 100%;
+
 		background-repeat:no-repeat;
 		background-attachment:fixed;
 		background-position:center;
@@ -27,24 +27,25 @@
 		content: '';
 		position: relative;
 		padding-top:4rem;
-
 		top: 0;
 		bottom: 0;
 		left: 0;
 		right: 0;
 		background-color: rgba(0, 0, 0, .4);
 	}
-/*
-	canvas {
-		position: relative;
-		z-index: 99;
-	}
-*/
-	canvas {
-		display: block;
-		width: 100vw;
-		height: 100vh;
-		cursor: pointer;
+	.header-family-content {
+		font-family: 'Anton', sans-serif;
+		font-size: 80px;
+		color:white;
+		width:100%;
+		height:5em;
+		padding-top: 1em;
+		background-attachment:fixed;
+		background-position:center;
+		position: absolute;
+
+
+
 	}
 
 
@@ -56,29 +57,73 @@
 
 	<!-- desktop -->
 	<div class="content" id="desktop-content">
+		<div class="parallax" style="background-color:#FDFFFC;height: 100%;">
+			<div class="header-family-content" id="a" style="text-align: center;">
+				<div class="wow" >
+					<div class="wow zoomIn" style="color:#293347">
+						<h1 style="font-size:5vw;">
+							EVENT PLANNER
+						</h1>
 
-		<div class="parallax" id="first-parallax">
-			<div class="fade-in-vertical">
+					</div>
+					<div class="wow zoomInDown" data-wow-delay="0.5s" style="color:#293347;">
 
-
-
+						<h4 style="font-size:2vw;margin: 1vw">
+							Like Never Before
+						</h4>
+					</div>
+				</div>
 
 			</div>
-		</div>
-		<div style="height: 100%;background-color:white;font-size: 10px;">
-			<div class="wow bounceInUp">
-				Content to Reveal Here
+			<div class="header-family-content" style="padding-top:20vw;position:relative;text-align: center;">
+				<img src="{{ URL::to('img/MeetMe.png') }}" style="width:60vw;height:25vw;">
 			</div>
 		</div>
-		<div class="parallax" id="second-parallax"></div>
+
+		<div style="padding: 9rem; background-color:#247BA0;font-size: 10px;">
+
+
+		</div>
+
+		<div class="parallax" style="background-color:#FDFFFC;height: 100%;">
+		</div>
 	</div>
+
+
+
+
 	<!-- mobile -->
 	<div class="content" id="mobile-content">
-		<div class="parallax"></div>
-		<div style="height: 100%;background-color:#000000;font-size: 10px;">
+		<div class="parallax" style="background-color:#FDFFFC;height: 100%;">
+			<div class="header-family-content" id="a" style="text-align: center;">
+				<div class="wow" >
+					<div class="wow zoomIn" style="color:#293347">
+						<h1 style="font-size:5vw;">
+							EVENT PLANNER
+						</h1>
+
+					</div>
+					<div class="wow zoomInDown" data-wow-delay="0.5s" style="color:#293347;">
+
+						<h4 style="font-size:2vw;margin: 1vw">
+							Like Never Before
+						</h4>
+					</div>
+				</div>
+				<div class="header-family-content" style="padding-top:20vw;position:relative;text-align: center;">
+					<img src="{{ URL::to('img/MeetMe.png') }}" style="width:60vw;height:25vw;">
+				</div>
+			</div>
 
 		</div>
-		<div class="parallax" ></div>
+
+		<div style="padding: 9rem; background-color:#247BA0;font-size: 10px;">
+
+
+		</div>
+
+		<div class="parallax" style="background-color:#FDFFFC;height: 100%;">
+		</div>
 	</div>
 
 
