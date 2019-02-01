@@ -6,6 +6,7 @@
 <style>
 
 	@import url('https://fonts.googleapis.com/css?family=Jura');
+	@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 	.pushable .pusher {
 		padding-top: 0rem;
@@ -34,7 +35,7 @@
 		background-color: rgba(0, 0, 0, .4);
 	}
 	.header-family-content {
-		font-family: 'Anton', sans-serif;
+		font-family: 'Jura', sans-serif;
 		font-size: 80px;
 		color:white;
 		width:100%;
@@ -57,7 +58,7 @@
 
 	<!-- desktop -->
 	<div class="content" id="desktop-content">
-		<div class="parallax" style="background-color:#FDFFFC;height: 100%;">
+		<div class="parallax" style="background-color:#FDFFFC;height:  45vw;">
 			<div class="header-family-content" id="a" style="text-align: center;">
 				<div class="wow" >
 					<div class="wow zoomIn" style="color:#293347">
@@ -68,7 +69,7 @@
 					</div>
 					<div class="wow zoomInDown" data-wow-delay="0.5s" style="color:#293347;">
 
-						<h4 style="font-size:2vw;margin: 1vw">
+						<h4 style="font-size:2vw;margin: 1vw;font-family: 'PT Sans', sans-serif;">
 							Like Never Before
 						</h4>
 					</div>
@@ -80,8 +81,10 @@
 			</div>
 		</div>
 
-		<div style="padding: 9rem; background-color:#247BA0;font-size: 10px;">
+		<div style="padding: 20rem; background-color:#247BA0;font-size: 10px;">
+				<div>
 
+				</div>
 
 		</div>
 
@@ -94,7 +97,7 @@
 
 	<!-- mobile -->
 	<div class="content" id="mobile-content">
-		<div class="parallax" style="background-color:#FDFFFC;height: 100%;">
+		<div class="parallax" style="background-color:#FDFFFC;height: 45vw;">
 			<div class="header-family-content" id="a" style="text-align: center;">
 				<div class="wow" >
 					<div class="wow zoomIn" style="color:#293347">
@@ -105,20 +108,22 @@
 					</div>
 					<div class="wow zoomInDown" data-wow-delay="0.5s" style="color:#293347;">
 
-						<h4 style="font-size:2vw;margin: 1vw">
+						<h4 style="font-size:2vw;margin: 1vw;font-family: 'PT Sans', sans-serif;">
 							Like Never Before
 						</h4>
 					</div>
 				</div>
-				<div class="header-family-content" style="padding-top:20vw;position:relative;text-align: center;">
-					<img src="{{ URL::to('img/MeetMe.png') }}" style="width:60vw;height:25vw;">
-				</div>
-			</div>
 
+			</div>
+			<div class="header-family-content" style="padding-top:20vw;position:relative;text-align: center;">
+				<img src="{{ URL::to('img/MeetMe.png') }}" style="width:60vw;height:25vw;">
+			</div>
 		</div>
 
-		<div style="padding: 9rem; background-color:#247BA0;font-size: 10px;">
+		<div style="padding-top: 20vw; background-color:#247BA0;font-size: 10px;">
+			<div>
 
+			</div>
 
 		</div>
 
