@@ -77,19 +77,33 @@
 
 			</div>
 			<div class="header-family-content" style="padding-top:20vw;position:relative;text-align: center;">
-				<img src="{{ URL::to('img/MeetMe.png') }}" style="width:60vw;height:25vw;">
+				<img src="{{ URL::to('img/MeetMe1.png') }}" style="width:60vw;height:25vw;z-index:-1;">
 			</div>
 		</div>
 
-		<div style="padding: 20rem; background-color:#247BA0;font-size: 10px;">
-				<div>
-
+		<div class="header-family-content"style="padding: 15vw; width: 100%;background-color:#0f121b;font-size: 10px;text-align: center;">
+			<div class="header-family-content" style="padding-top: 8vw;width:70vw;height:28vw">
+				<div class="ui segment" style="position:absolute; height: 20vw;width:20vw; margin-left: 0vw; margin-top: 0vw">
+					This segment will appear to the left
 				</div>
+				<div class="ui segment" style="position:absolute; height: 20vw;width:20vw; margin-left: 25vw; margin-top:0vw">
+					This segment will appear to the left
+				</div>
+				<div class="ui segment" style="position:absolute; height: 20vw;width:20vw;margin-left: 50vw; margin-top:0vw">
+					This segment will appear to the left
+				</div>
+			</div>
 
 		</div>
 
 		<div class="parallax" style="background-color:#FDFFFC;height: 100%;">
+
+
 		</div>
+
+
+
+
 	</div>
 
 
@@ -97,7 +111,7 @@
 
 	<!-- mobile -->
 	<div class="content" id="mobile-content">
-		<div class="parallax" style="background-color:#FDFFFC;height: 45vw;">
+		<div class="parallax" style="background-color:#FDFFFC;height:  45vw;">
 			<div class="header-family-content" id="a" style="text-align: center;">
 				<div class="wow" >
 					<div class="wow zoomIn" style="color:#293347">
@@ -116,19 +130,30 @@
 
 			</div>
 			<div class="header-family-content" style="padding-top:20vw;position:relative;text-align: center;">
-				<img src="{{ URL::to('img/MeetMe.png') }}" style="width:60vw;height:25vw;">
+				<img src="{{ URL::to('img/MeetMe.png') }}" style="width:60vw;height:25vw;z-index:-1;">
 			</div>
 		</div>
 
-		<div style="padding-top: 20vw; background-color:#247BA0;font-size: 10px;">
-			<div>
-
+		<div class="header-family-content"style="padding: 35vw; width: 100%;background-color:#247BA0;font-size: 10px;text-align: center;">
+			<div class="header-family-content" style="padding-top: 8vw;width:70vw;height:28vw">
+				<div class="ui segment" style="position:absolute; height: 20vw;width:20vw; margin-left: 0vw; margin-top: 0vw">
+					This segment will appear to the left
+				</div>
+				<div class="ui segment" style="position:absolute; height: 20vw;width:20vw; margin-left: 25vw; margin-top:0vw">
+					This segment will appear to the left
+				</div>
+				<div class="ui segment" style="position:absolute; height: 20vw;width:20vw;margin-left: 50vw; margin-top:0vw">
+					This segment will appear to the left
+				</div>
 			</div>
 
 		</div>
 
 		<div class="parallax" style="background-color:#FDFFFC;height: 100%;">
+
+
 		</div>
+
 	</div>
 
 
