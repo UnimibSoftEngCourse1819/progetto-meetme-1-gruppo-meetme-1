@@ -111,30 +111,31 @@
 
 	<!-- mobile -->
 	<div class="content" id="mobile-content">
-		<div class="parallax" style="background-color:#FDFFFC;height:  45vw;">
-			<div class="header-family-content" id="a" style="text-align: center;">
+		<div class="parallax" style="background-color:#FDFFFC;height: 150vw;">
+			<div class="header-family-content" id="a" style="text-align: center; padding-right:5vw;padding-top:35vw;">
 				<div class="wow" >
 					<div class="wow zoomIn" style="color:#293347">
-						<h1 style="font-size:5vw;">
+						<h1 style="font-size:15vw;">
 							EVENT PLANNER
 						</h1>
 
 					</div>
 					<div class="wow zoomInDown" data-wow-delay="0.5s" style="color:#293347;">
 
-						<h4 style="font-size:2vw;margin: 1vw;font-family: 'PT Sans', sans-serif;">
+						<h4 style="font-size:10vw;margin: 0vw;font-family: 'PT Sans', sans-serif;">
 							Like Never Before
 						</h4>
 					</div>
 				</div>
 
 			</div>
-			<div class="header-family-content" style="padding-top:20vw;position:relative;text-align: center;">
-				<img src="{{ URL::to('img/MeetMe.png') }}" style="width:60vw;height:25vw;z-index:-1;">
+
+			<div class="header-family-content" style="padding-top:115vw;padding-right:5vw;position:relative;text-align: center;">
+				<img src="{{ URL::to('img/MeetMe1.png') }}" style="width:90vw;height:35vw;z-index:-1;">
 			</div>
 		</div>
 
-		<div class="header-family-content"style="padding: 35vw; width: 100%;background-color:#247BA0;font-size: 10px;text-align: center;">
+		<div class="header-family-content"style="padding: 15vw; width: 100%;background-color:#0f121b;font-size: 10px;text-align: center;">
 			<div class="header-family-content" style="padding-top: 8vw;width:70vw;height:28vw">
 				<div class="ui segment" style="position:absolute; height: 20vw;width:20vw; margin-left: 0vw; margin-top: 0vw">
 					This segment will appear to the left
@@ -153,6 +154,8 @@
 
 
 		</div>
+
+
 
 	</div>
 
