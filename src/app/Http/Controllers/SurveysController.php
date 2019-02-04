@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class SurveysController extends Controller
 {
+
+        /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -16,10 +27,15 @@ class SurveysController extends Controller
      */
     public function show(Event $survey)
     {
-        //dd($survey->id);
+        //risalgo alle email partecipanti utente loggato
+
         $time_slots = $survey->timeslots;
-        //$voters = $time_slots->voters;
-        return view('surveys.show', compact('time_slots', "survey"));
+        $partecipants = $survey->partecipants;
+        $auth_partecipants = $partecipants->where('id',auth()->user());
+
+        //$voters = $time_slots->pluck('voters')->flatten();//si ritornano gli utenti che sono iscritti all evento
+        $survey->load('timeslots.voters');
+        return view('surveys.show', compact('time_slots', "survey", 'partecipants','auth_partecipants'));
     }
 
     /**
@@ -30,6 +46,6 @@ class SurveysController extends Controller
      */
     public function answer(Request $request, Event $survey)
     {
-        //
+        //risalgo alle email partecipanti utente loggato
     }
 }
