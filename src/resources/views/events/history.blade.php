@@ -12,17 +12,19 @@
 
     @foreach (request()->user()->emails as $email)
         <div class="ui segment">
-            <div class="ui small header"> <i class="big envelope icon"> </i> </span> {{ $email->email }}</div>
-            <div class ="ui list">
+            <div class="ui small header"> <i class="big envelope icon"> </i>  {{ $email->email }}</div>
+            <div class ="ui celled list">
                 @forelse ($email->events as $event)
                     <div class="item">
                         <div class="header">
-                             <a href="{{ route('events.show', ['id' => $event->id]) }}">
-                                 {{ $event->title }}
+                            <i class="calendar alternate outline icon"></i>
+
+                            <a class="floated content" href="{{ route('events.show', ['id' => $event->id]) }}">
+                                {{ $event->title }}</a>
                                  @if ($event->public)
-                                     <span class="ui mini blue label">Public</span>
+                                     <span class="circular ui mini blue label">Public</span>
                                  @else
-                                     <span class="ui mini orange label">Private</span>
+                                     <span class="circular ui mini orange label">Private</span>
                                  @endif
                              </a>
                         </div>
