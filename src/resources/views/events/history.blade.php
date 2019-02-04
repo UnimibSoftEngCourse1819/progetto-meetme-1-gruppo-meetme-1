@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="ui text container">
+<div class="ui  text container">
     <div class="ui header">{{ __('My Events') }}
         <div class=" right floated ui labeled button" tabindex="0">
             <a href="{{route('events.create')}}" class= " tiny ui primary button">

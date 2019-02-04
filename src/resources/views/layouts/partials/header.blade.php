@@ -16,7 +16,7 @@
 
 <div class="ui top fixed secondary pointing small menu" id="desktop-menu">
     <div class="item">
-        <img src="{{ asset('img/logo.jpg') }}">
+        <img src="{{ asset('img/logo.png') }}">
     </div>
     <a class="active item" href="{{ url('/') }}">MeetMe</a>
     <div class="right menu">
