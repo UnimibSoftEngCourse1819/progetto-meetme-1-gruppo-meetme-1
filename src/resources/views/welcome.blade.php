@@ -81,9 +81,13 @@
 
 	<!-- desktop -->
 	<div class="content" id="desktop-content">
-		<div class="parallax" style="background-color:#FDFFFC;height:  45vw;">
-			<div class="header-family-content" id="a" style="text-align: center;">
+
+
+
+		<div class="parallax" style="background-color:#FDFFFC;height:  44vw;">
+			<div class="header-family-content" style="text-align: center;">
 				<div class="wow" >
+
 					<div class="wow zoomIn" style="color:#293347">
 						<h1 style="font-size:5vw;">
 							EVENT PLANNER
@@ -94,15 +98,20 @@
 							Like Never Before
 						</h4>
 					</div>
+
 				</div>
 
-				<div class="header-family-content" style="padding-top:5vw;position:relative;text-align: center;">
+				<div class="header-family-content" style="padding-top:4vw;position:relative;text-align: center;">
 					<div class="wow fadeInUpBig" data-wow-delay="1s">
-						<img src="{{ URL::to('img/MeetMe1.png') }}" style="width:60vw;height:25vw;">
+						<img src="{{URL::to('img/MeetMe1.png')}}" style="width:60vw;height:25vw;">
 					</div>
 				</div>
+
 			</div>
 		</div>
+
+
+
 
 		<div class="header-family-content section" style="padding: 0vw; width: 100%;height:24vw;background-color:#0f121b;font-size: 10px;text-align: center;">
 			<!-- preview -->
@@ -113,7 +122,7 @@
 					</h4>
 				</div>
 				<div  style="padding-top:2vw">
-					<p style="color:#7eebff;font-size: 1vw;">
+					<p style="color:white;font-size: 1vw;">
 						Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
 						Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
 						when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br>
@@ -125,31 +134,33 @@
 			<!-- circle -->
 			<div class="header-family-content" style="padding-top: 7vw;width:70vw;height:28vw">
 				<div class="wow fadeInLeftBig">
-					<div class="ui circular segment" style="position:absolute; height: 15vw;width:15vw; margin-left: 18vw; margin-top: 0vw">
-						<p style="padding-top:4vw;color:black;font-size:2vw">
-							Text
+					<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 18vw;margin-top:1vw">
+						<p style="color:black;font-size:2vw;padding-top:0vw">
+							<img src="{{URL::to('img/a.svg')}}">
 						</p>
 					</div>
 				</div>
 				<div class="wow fadeInUpBig">
-					<div class="ui circular segment" style="position:absolute; height: 15vw;width:15vw; margin-left: 42vw; margin-top:0vw">
-						<p style="padding-top:4vw;color:black;font-size:2vw">
-							Text
-						</p>
+					<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 43.5vw; margin-top:1vw">
+						<p style="color:black;font-size:2vw;padding-top:0vw">
+                            <img src="{{URL::to('img/b.svg')}}">
+
+                        </p>
 					</div>
 				</div>
 				<div class="wow fadeInRightBig">
-					<div class="ui circular segment" style="position:absolute; height: 15vw;width:15vw;margin-left: 67vw; margin-top:0vw">
-						<p style="padding-top:4vw;color:black;font-size:2vw">
-							Text
-						</p>
+					<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw;margin-left: 69vw;margin-top:1vw">
+						<p style="color:black;font-size:2vw;padding-top:0vw">
+                            <img src="{{URL::to('img/c.svg')}}">
+
+                        </p>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="parallax" >
-			<div class="second" style="height: 50vw;">
+			<div class="second" style="height: 30vw;">
 			</div>
 		</div>
 
@@ -161,7 +172,7 @@
 					</h4>
 				</div>
 				<div  style="padding-top:2vw">
-					<p style="color:#7eebff;font-size: 1vw;">
+					<p style="color:white;font-size: 1vw;">
 						Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
 						Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
 						when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br>
@@ -170,15 +181,15 @@
 				</div>
 			</div>
 		</div>
-		<div class="parallax" style="background-color:red;height: 100%;">
-            <div style="padding-top: 30vw">
-                <button id="scroll-footer">Start Animation</button>
-                <div id="behind-content" style="background:#98bf21;height:100px;width:100px;position:relative;"></div>
-
+        <div class="header-family-content"style="padding: 0vw; width: 100%;height:5vw;background-color:black;font-size: 10px;text-align: center;">
+                <div class="wow fadeInUp">
+                    <div  style="padding-top:2vw">
+                        <p style="color:white;font-size: 1vw;">
+                            footer
+                        </p>
+                    </div>
             </div>
-
-
-		</div>
+        </div>
 
 	</div>
 
