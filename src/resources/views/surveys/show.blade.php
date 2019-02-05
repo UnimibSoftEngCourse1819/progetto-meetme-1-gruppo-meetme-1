@@ -17,7 +17,7 @@
     	<th>Voter name</th>
      	@foreach ($time_slots as $ts)
       	<th><p>from: {{ $ts->from}}</p>
-      		<p>to: {{ $ts->from}}</<p>
+      		<p>to: {{ $ts->to}}</<p>
       	</th>
   	@endforeach
     </tr>
@@ -35,7 +35,7 @@
         <td data-label="Name">{{$pt->email}}</td>
         @foreach($time_slots as $ts)
         	@if($ts->voters()->where('emails.id', $pt->id)->count() == 0 && Auth::user()->id == $pt->user_id)
-        		<td class="center aligned"><form action="" method="POST"><button class="ui teal button">vota</button> <input type="hidden" id="custId" name="user_id" value="{{$pt->id}}"> <input type="hidden" id="custId" name="time_slot_id" value="{{$ts->id}}"></form></td>
+        		<td class="center aligned"><form action="" method="POST"> @csrf<button class="ui teal button">vota</button> <input type="hidden" id="custId" name="user_id" value="{{$pt->id}}"> <input type="hidden" id="custId" name="time_slot_id" value="{{$ts->id}}"></form></td>
         	@elseif( $ts->voters()->where('emails.id', $pt->id)->count() == 0)
         		<td class="negative center aligned">X</td>
     		  @else
