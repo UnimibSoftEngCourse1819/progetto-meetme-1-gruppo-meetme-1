@@ -9,8 +9,9 @@
     @endif
 
     <div class="ui header">
-        Event: {{ $event->title }} @if (! $event->public)(Private)@endif
+        Event: {{ $event->title }} @if (! $event->public)<i class="lock icon" title="(Private)"></i>@endif
         //Aggiungere update
+        @if($event->creator->user->id == Auth::user()->id)
         <div class=" right floated ui labeled button" tabindex="0">
             <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $event->id])}}">
                 <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
@@ -23,6 +24,12 @@
                 <button class="circular mini compact eraser ui green button" type="submit">Modifica Evento</button>
             </form>
         </div>
+        <div class=" right floated ui labeled button" tabindex="0">
+            <form class="right floated" method="GET" action="{{route('surveys.show', ['event' => $event->id])}}">
+                <button class="circular mini compact eraser ui teal button" type="submit">vota</button>
+            </form>
+        </div>
+        @endif
         <div class="sub header">{{ $event->created_at->diffForHumans() }}</div>
     </div>
     <div ><b><a class="ui black basic horizontal label">Description:</a></b> {{ $event->description }}</div>
@@ -51,12 +58,14 @@
 
                 <div class="header">{{ $partecipant->user->first_name }} {{ $partecipant->user->last_name }}</div>
                 <div class="description"><i class="small blue envelope icon"> </i>  {{ $partecipant->email }}</div>
-                <div class=" right floated ui labeled button" tabindex="0">
-                    <form class="right floated" method="POST" action="{{route('events.partecipants.delete', ['event' => $event->id, 'email'=>$partecipant->id] )}}">
-                        <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
-                        <button class="circular mini compact eraser ui red button" type="submit"><i class="close icon"> </i> </span></button>
-                    </form>
-                </div>
+                @if($event->creator->user->id == Auth::user()->id)
+                    <div class=" right floated ui labeled button" tabindex="0">
+                        <form class="right floated" method="POST" action="{{route('events.partecipants.delete', ['event' => $event->id, 'email'=>$partecipant->id] )}}">
+                            <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
+                            <button class="circular mini compact eraser ui red button" type="submit"><i class="close icon"> </i> </span></button>
+                        </form>
+                    </div>
+                @endif
             </div>
         @endforeach
     </div>
