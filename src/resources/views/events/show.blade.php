@@ -14,14 +14,11 @@
         <div class=" right floated ui labeled button" tabindex="0">
             <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $event->id])}}">
                 <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
-                <button class="circular mini compact eraser ui red button" type="submit">Elimina Evento</button>
+                <button class=" circular mini compact eraser ui red button" type="submit">Elimina Evento</button>
             </form>
         </div>
         <div class=" right floated ui  labeled button" tabindex="0">
-            <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $event->id])}}">
-                <input type="hidden" name="_method" value="UPDATE">{{ csrf_field() }}
-                <button class="circular mini compact eraser ui green button" type="submit">Modifica Evento</button>
-            </form>
+            <a href="{{route('events.edit', ['event' => $event->id])}}" class="circular mini compact eraser ui green button" type="submit">Modifica Evento</a>
         </div>
         <div class="sub header">{{ $event->created_at->diffForHumans() }}</div>
     </div>
@@ -54,7 +51,7 @@
                 <div class=" right floated ui labeled button" tabindex="0">
                     <form class="right floated" method="POST" action="{{route('events.partecipants.delete', ['event' => $event->id, 'email'=>$partecipant->id] )}}">
                         <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
-                        <button class="circular mini compact eraser ui red button" type="submit"><i class="close icon"> </i> </span></button>
+                        <button class="icon circular mini compact eraser ui red button" type="submit"><i class="close icon"> </i> </span></button>
                     </form>
                 </div>
             </div>

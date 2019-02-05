@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class TimeSlot extends Model
 {
-
-
     /**
      * The attributes that are mass assignable.
      *
@@ -16,6 +14,17 @@ class TimeSlot extends Model
     protected $fillable = [
         'from', 'to'
     ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'from' => 'datetime',
+        'to' => 'datetime',
+    ];
+
     /**
      * Indicates if the model should be timestamped.
      *
