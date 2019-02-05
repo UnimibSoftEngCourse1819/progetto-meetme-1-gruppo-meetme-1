@@ -183,11 +183,10 @@ class EventsController extends Controller
      */
     public function destroy(Event $event)
     {
-        if ($event->creator->user()->where('id', auth()->user()->id)->count() == 0) {
-            return redirect()->back()->with(['error' => 'You do not own this event.']);
-        }
+        $this->authorize('edit', $event);
 
         $event->delete();
+
         return redirect()->route('events.index');
     }
 }

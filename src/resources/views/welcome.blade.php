@@ -119,7 +119,6 @@
 
 			<!-- circle -->
 			<div class="header-family-content" style="padding-top: 7vw;width:70vw;height:28vw">
-				<
 				<div class="wow fadeInLeftBig">
 					<div class="ui circular segment" style="position:absolute; height: 15vw;width:15vw; margin-left: 18vw; margin-top: 0vw">
 						<p style="padding-top:4vw;color:black;font-size:2vw">
@@ -167,8 +166,15 @@
 			</div>
 		</div>
 		<div class="parallax" style="background-color:red;height: 100%;">
+            <div style="padding-top: 30vw">
+                <button id="scroll-footer">Start Animation</button>
+                <div id="behind-content" style="background:#98bf21;height:100px;width:100px;position:relative;"></div>
+
+            </div>
+
 
 		</div>
+
 	</div>
 
 
@@ -232,29 +238,18 @@
 	<!--
 	<script src="{{ asset('js/anime.min.js') }}"></script>
 	<script src="{{ asset('js/appear.js') }}"></script>-->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 	<script>
-		wow = new WOW(
-				{
-					boxClass:     'text',      // default
-					animateClass: 'animated', // default
-					offset:       0,          // default
-					mobile:       true,       // default
-					live:         true        // default
-				}
-		)
-		wow.init();
+
 		new WOW().init();
-		wow = new WOW(
-				{
-					boxClass:     'header-family-content',      // default
-					animateClass: 'animated', // default
-					offset:       0,          // default
-					mobile:       true,       // default
-					live:         true        // default
-				}
-		)
-		wow.init();
-	</script>
-@endscript
+
+        $(document).ready(function () {
+            var $behindContainer = $('#behind-container');
+            function myFunction() {
+                $behindContainer.slideToggle()
+            }
+            $('#scroll-footer').on('click', myFunction);
+        });
+    </script>
+@endsection

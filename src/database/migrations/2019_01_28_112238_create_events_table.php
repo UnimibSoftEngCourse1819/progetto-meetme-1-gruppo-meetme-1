@@ -28,7 +28,7 @@ class CreateEventsTable extends Migration
 
             $table->unsignedInteger('creator_id');
 
-            $table->foreign('creator_id')->references('id')->on('emails');
+            $table->foreign('creator_id')->references('id')->on('emails')->onDelete('cascade');
         });
     }
 
