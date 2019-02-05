@@ -60,7 +60,7 @@ class TimeSlot extends Model
      */
     public function setFromAttribute($value)
     {
-        $this->attributes['from'] = $this->parseIso8061Date($value);
+        $this->attributes['from'] = $this->parseIso8601Date($value);
     }
 
     /**
@@ -70,7 +70,7 @@ class TimeSlot extends Model
      */
     public function setToAttribute($value)
     {
-        $this->attributes['to'] = $this->parseIso8061Date($value);
+        $this->attributes['to'] = $this->parseIso8601Date($value);
     }
 
     /**
