@@ -8,11 +8,19 @@ use Illuminate\Http\Request;
 
 class PartecipantsController extends Controller
 {
+    /**
+     * Create a new controller instance
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    /**
+     * Remove a partecipant from the event
+     *
+     * @return Illuminate\Http\Response
+     */
     public function destroy(Event $event, Email $email)
     {
         $this->authorize('own', $email);
