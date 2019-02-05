@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 </p>
-
+                <a class="ui blue button" href="{{route('events.create')}}">Crea nuovo evento</a>
             </div>
         </div>
         <div class="ui vertical divider"> 0 </div>

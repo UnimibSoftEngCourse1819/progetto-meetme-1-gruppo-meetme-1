@@ -48,7 +48,7 @@ class HomeController extends Controller
             ->get();
 
         $owned_events = Event::where('creator_id', auth()->user()->id)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'DESC')
             ->limit(5)
             ->get();
 
