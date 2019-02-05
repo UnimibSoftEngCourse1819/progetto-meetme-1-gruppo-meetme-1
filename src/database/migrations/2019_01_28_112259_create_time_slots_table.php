@@ -21,7 +21,7 @@ class CreateTimeSlotsTable extends Migration
 
             $table->unsignedInteger('event_id');
 
-            $table->foreign('event_id')->references('id')->on('events');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 
