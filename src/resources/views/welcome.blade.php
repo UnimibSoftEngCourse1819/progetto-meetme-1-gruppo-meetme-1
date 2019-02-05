@@ -28,11 +28,13 @@
 
 	.parallax .second{
 		width: 100%;
-		background-image: url("{{ asset('img/wall6.jpg') }}");
+		background-image: url("{{ asset('img/wall5.jpg') }}");
 		background-size: cover;
 		background-attachment: fixed;
 		background-position: center;
 		background-repeat: no-repeat;
+		position: relative;
+		z-index: 9;
 	}
 	/*
 	.parallax:after {
@@ -54,7 +56,10 @@
 		padding-top: 1em;
 		background-attachment:fixed;
 		background-position:center;
-		position: absolute;
+		position: relative;
+	}
+	.header-family-content.section {
+		z-index: 10;
 	}
 	.footer-family-content {
 		font-family: 'Jura', sans-serif;
@@ -99,7 +104,7 @@
 			</div>
 		</div>
 
-		<div class="header-family-content"style="padding: 0vw; width: 100%;height:24vw;background-color:#0f121b;font-size: 10px;text-align: center;">
+		<div class="header-family-content section" style="padding: 0vw; width: 100%;height:24vw;background-color:#0f121b;font-size: 10px;text-align: center;">
 			<!-- preview -->
 			<div class="text" style="height:10vw;padding-top:4vw;">
 				<div class="wow fadeIn">
