@@ -16,10 +16,10 @@ class PartecipantsController extends Controller
     public function destroy(Event $event, Email $email)
     {
         $this->authorize('own', $email);
-        $this->authorize('view', $event);
+        $this->authorize('edit', $event);
 
         $event->partecipants()->detach($email->id);
 
-        return redirect()->route('events.show', ['event' => $event->id]);
+        return redirect()->route('events.show', ['event'=>$event->id]);
     }
 }
