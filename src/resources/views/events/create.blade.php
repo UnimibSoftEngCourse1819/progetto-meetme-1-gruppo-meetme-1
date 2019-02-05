@@ -160,7 +160,7 @@ $(document).ready(function() {
         $(this).closest('.item').remove();
     })
 
-    function addPartecipant() {
+    function addPartecipant(event) {
         event.preventDefault();
 
         var email = $partecipantEmail.val();

@@ -18,7 +18,7 @@ class CreateCalendarsTable extends Migration
 
             $table->unsignedInteger('email_id');
 
-            $table->foreign('email_id')->references('email_id')->on('emails');
+            $table->foreign('email_id')->references('id')->on('emails');
         });
     }
 

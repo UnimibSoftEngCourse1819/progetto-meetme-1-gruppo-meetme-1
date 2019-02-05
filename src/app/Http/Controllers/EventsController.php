@@ -54,7 +54,7 @@ class EventsController extends Controller
         $event = $this->createEvent($this->validateUserEmailAccount());
 
         $partecipants = collect(request()->partecipants);
-        $this->fireInvitationEmails($event, $partecipants);
+        // $this->fireInvitationEmails($event, $partecipants);
 
         $models = $this->mapModels($partecipants);
 

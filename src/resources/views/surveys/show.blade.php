@@ -5,19 +5,6 @@
 
 <p>Evento: {{$survey->title}}</p>
 
-
-
-
-<div class="ui grid">
-  <div class="three wide column"></div>
-  <div class="three wide column">
-
-
-
-  </div>
-  <div class="threefour wide column"></div>
-</div>
-
 <table class="ui celled table">
   <thead>
   	<th>Voter name</th>
@@ -32,15 +19,23 @@
 	<tr>
 		<td>#</td>
 		@foreach ($time_slots as $ts)
-			<td>{{$ts->voters_count}}</td>
+			<td>{{$ts->voters()->count()}}</td>
 		@endforeach
 	</tr>
 
-  	@foreach($voters as $vt)
+  	@foreach($partecipants as $pt)
     <tr>
-      <td data-label="Name">{{$vt->email}}</td>
-      <td data-label="Age">24</td>
-      <td data-label="Job">Engineer</td>
+      <td data-label="Name">{{$pt->email}}</td>
+      @foreach($time_slots as $ts)
+      	@if($ts->voters()->where('emails.id', $pt->id)->count() == 0 && Auth::user()->id == $pt->user_id)
+      		<td>S</td>
+          <!-- id ts e pt id -->
+      	@elseif( $ts->voters()->where('emails.id', $pt->id)->count() == 0)
+      		<td>X</td>
+		@else
+			<td>V</td>
+		@endif
+      @endforeach
     </tr>
     @endforeach
   </tbody>
