@@ -11,6 +11,18 @@ class EventPolicy
     use HandlesAuthorization;
 
     /**
+     * Skip authorization for event owners
+     *
+     * @return true|false|null
+     */
+    public function before(User $user, $ability, Event $event)
+    {
+        if ($event->creator->user_id == $user->id) {
+            return true;
+        }
+    }
+
+    /**
      * Determine whether the user can view the event.
      *
      * @param  \App\User  $user
@@ -32,6 +44,6 @@ class EventPolicy
      */
     public function edit(User $user, Event $event)
     {
-        return $event->creator_id == $user->id;
+        return $event->creator->user_id == $user->id;
     }
 }
