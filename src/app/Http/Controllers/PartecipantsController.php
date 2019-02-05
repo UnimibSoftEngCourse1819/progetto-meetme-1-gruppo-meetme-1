@@ -15,12 +15,11 @@ class PartecipantsController extends Controller
 
     public function destroy(Event $event, Email $email)
     {
-        // Verifica che il partecipante sia realmente invitato
-        abort_if($event->partecipants()->where('email_id', $email->id)->count() == 0, 412);
-        // Verifica che chi compie l' azione sia il proprietario dell'evento
-        abort_if($event->creator->user->id !== auth()->user()->id, 412);
-        // Scollega l email dai partecipanti
+        $this->authorize('own', $email);
+        $this->authorize('view', $event);
+
         $event->partecipants()->detach($email->id);
-        return redirect()->route('events.show', ['event'=>$event->id]);
+
+        return redirect()->route('events.show', ['event' => $event->id]);
     }
 }
