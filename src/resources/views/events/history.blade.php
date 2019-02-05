@@ -3,17 +3,16 @@
 @section('content')
 <div class="ui  text container">
     <div class="ui header">{{ __('My Events') }}
-        <div class=" right floated ui labeled button" tabindex="0">
-            <a href="{{route('events.create')}}" class= " tiny ui primary button">
-               <i class=" pencil alternate icon"></i> Nuovo Evento
+            <a href="{{route('events.create')}}" class= " right floatedtiny ui primary button">
+               <i class=" pencil alternate icon"></i>
+               Nuovo Evento
             </a>
-        </div>
     </div>
 
     @foreach (request()->user()->emails as $email)
         <div class="ui segment">
             <div class="ui small header"> <i class="big envelope icon"> </i>  {{ $email->email }}</div>
-            <div class ="ui celled list">
+            <div class ="ui celled very relaxed list">
                 @forelse ($email->events as $event)
                     <div class="item">
                         <div class="header">
