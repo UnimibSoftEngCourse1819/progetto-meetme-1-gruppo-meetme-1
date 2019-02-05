@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class TimeSlot extends Model
@@ -50,5 +51,36 @@ class TimeSlot extends Model
     public function voters()
     {
         return $this->belongsToMany(Email::Class);
+    }
+
+    /**
+     * Set attribute from
+     *
+     * @param $value
+     */
+    public function setFromAttribute($value)
+    {
+        $this->attributes['from'] = $this->parseIso8061Date($value);
+    }
+
+    /**
+     * Set attribute to
+     *
+     * @param $value
+     */
+    public function setToAttribute($value)
+    {
+        $this->attributes['to'] = $this->parseIso8061Date($value);
+    }
+
+    /**
+     * Parse String 8601
+     *
+     * @param $value
+     * @return string
+     */
+    private function parseIso8601Date($value)
+    {
+        return Carbon::createFromFormat('Y-m-d\TH:i:s', $value)->toDateTimeString();
     }
 }
