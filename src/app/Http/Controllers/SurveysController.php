@@ -30,6 +30,25 @@ class SurveysController extends Controller
      */
     public function answer(Request $request, Event $survey)
     {
-        //
+        $this->validate($request, [
+            'account' => ['required', 'exists:emails,id'],
+            'timeslot' => ['required', 'exists:timeslots,id']
+        ]);
+
+        $email = $this->validateUserEmailAccount();
+
+        // Save answer
+    }
+
+    /**
+     * Ensure the email account is associated to the user
+     *
+     * @return App\Email
+     */
+    private function validateUserEmailAccount()
+    {
+        return tap(Email::find(request()->account), function ($email) {
+            abort_if($email->user_id != auth()->user()->id, 412, 'Invalid account');
+        });
     }
 }
