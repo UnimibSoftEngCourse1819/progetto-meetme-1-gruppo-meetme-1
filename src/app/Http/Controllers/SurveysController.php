@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Email;
 use App\TimeSlot;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,7 @@ class SurveysController extends Controller
      */
     public function show(Event $survey)
     {
+        $this->authorize('view', $survey);
         //risalgo alle email partecipanti utente loggato
 
         $time_slots = $survey->timeslots;
@@ -47,24 +49,26 @@ class SurveysController extends Controller
     public function answer(Request $request, Event $survey)
     {
         $this->validate($request, [
-            'account' => ['required', 'exists:emails,id'],
-            'timeslot' => ['required', 'exists:timeslots,id']
+            'email_id' => ['required', 'exists:emails,id'],
+            'time_slot_id' => ['required', 'exists:time_slots,id']
         ]);
 
-        $email = $this->validateUserEmailAccount();
+        $email = Email::find(request()->email_id);
+        $this->authorize('own', $email);
+        $this->authorize('view', $survey);
 
-        // Save answer
+        $email->timeslots()->attach($request->time_slot_id);
+
+        return redirect()->back()->with('message', 'Vote successful');
     }
 
     /**
-     * Ensure the email account is associated to the user
+     * Ensure the email account is associated as partecipant
      *
      * @return App\Email
      */
-    private function validateUserEmailAccount()
+    private function ensureEmailCanPartecipate(Email $email, Event $survey)
     {
-        return tap(Email::find(request()->account), function ($email) {
-            abort_if($email->user_id != auth()->user()->id, 412, 'Invalid account');
-        });
+        abort_if($survey->partecipants()->where('emails.id', $email->id)->count()== 0, 404);
     }
 }
