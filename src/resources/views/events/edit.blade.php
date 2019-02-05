@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="ui text container">
-        <form method="POST" class="ui form" action="{{ route('events.update') }}" id="event-form">
+        <form method="POST" class="ui form" action="{{ route('events.update', ['event' => $event->id]) }}" id="event-form">
             @csrf
 
             <div class="ui three top attached steps">

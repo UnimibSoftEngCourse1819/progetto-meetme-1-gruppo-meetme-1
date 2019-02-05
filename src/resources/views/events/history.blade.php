@@ -20,13 +20,15 @@
                             <i class="calendar alternate outline icon"></i>
 
                             <a class="floated content" href="{{ route('events.show', ['id' => $event->id]) }}">
-                                {{ $event->title }}</a>
-                                 @if ($event->public)
-                                     <span class="circular ui mini blue label">Public</span>
-                                 @else
-                                     <span class="circular ui mini orange label">Private</span>
-                                 @endif
-                             </a>
+                                <h5 class="ui header">
+                                    {{ $event->title }}
+                                    @if ($event->public)
+                                        <span class="circular ui mini blue label">Public</span>
+                                    @else
+                                        <span class="circular ui mini orange label">Private</span>
+                                    @endif
+                                </h5>
+                            </a>
                         </div>
                         {{ $event->created_at->diffForHumans() }}
                     </div>

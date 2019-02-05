@@ -16,9 +16,12 @@
                     <div class="ui middle celled relaxed aligned divided list">
                         @foreach ($events as $event)
                         <div class="item">
-                            <div class="right floated content">
-                                <div class="ui  red button">Delete</div>
-                            </div>
+                            @can('edit', $event)
+                            <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $owned->id])}}">
+                                <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
+                                <button class="  mini compact eraser ui red button" type="submit">Delete</button>
+                            </form>
+                            @endcan
                             <i class="calendar alternate icon"></i>
 
                             <div class="content">
@@ -44,13 +47,13 @@
                 <div class="row">
                     <div class="ui middle celled relaxed aligned divided list">
 
-                    @foreach ($owned_event as $owned)
+                    @foreach ($owned_events as $owned)
                         <div class="item">
                             <div class="right floated content">
                                 <div class="ui buttons">
-                                    <button class="ui green button">Update</button>
+                                    <a href="{{route('events.edit', ['event' => $owned->id])}}" class="ui green button">Update</a>
                                     <div class="or"></div>
-                                    <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $event->id])}}">
+                                    <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $owned->id])}}">
                                         <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
                                         <button class="  mini compact eraser ui red button" type="submit">Delete</button>
                                     </form>
@@ -59,7 +62,7 @@
                             </div>
                             <i class="calendar alternate icon"></i>
                             <div class="content">
-                                <li> <h5 class="ui header">{{ $owned->title }} </h5> {{ (new \Carbon\Carbon($event->created_at))->diffForHumans() }}</li>
+                                <li> <h5 class="ui header">{{ $owned->title }} </h5> {{ (new \Carbon\Carbon($owned->created_at))->diffForHumans() }}</li>
                             </div>
                         </div>
                     @endforeach

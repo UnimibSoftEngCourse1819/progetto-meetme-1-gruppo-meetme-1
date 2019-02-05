@@ -47,19 +47,11 @@ class HomeController extends Controller
             ->limit(5)
             ->get();
 
-        $owned_event =  \DB::table( 'events' )
-            ->join('emails', 'emails.user_id', '=', 'events.creator_id')
-            ->where('events.creator_id', auth()->user()->id)
-            //->select('events.title', 'events.created_at')
-            ->orderBy('created_at', 'DESC')
+        $owned_events = Event::where('creator_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
             ->limit(5)
             ->get();
-        /**
-         * auth()->user()->events()->orderBy('created_at', 'DESC')->limit(5)->get();
-         * auth()->user()->events()->latest()->get();
-         */
 
-
-        return view('home', compact('part_events','created_events', 'events', 'owned_event'));
+        return view('home', compact('part_events','created_events', 'events', 'owned_events'));
     }
 }
