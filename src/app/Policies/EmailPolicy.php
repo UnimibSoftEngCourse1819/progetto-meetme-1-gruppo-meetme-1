@@ -19,6 +19,6 @@ class EmailPolicy
      */
     public function own(User $user, Email $email)
     {
-        return $email->user_id == $user;
+        return $email->user_id == $user->id;
     }
 }
