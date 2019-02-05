@@ -61,14 +61,4 @@ class SurveysController extends Controller
 
         return redirect()->back()->with('message', 'Vote successful');
     }
-
-    /**
-     * Ensure the email account is associated as partecipant
-     *
-     * @return App\Email
-     */
-    private function ensureEmailCanPartecipate(Email $email, Event $survey)
-    {
-        abort_if($survey->partecipants()->where('emails.id', $email->id)->count()== 0, 404);
-    }
 }
