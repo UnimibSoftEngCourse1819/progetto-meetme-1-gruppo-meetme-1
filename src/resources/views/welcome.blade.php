@@ -28,7 +28,7 @@
 
 	.parallax .second{
 		width: 100%;
-		background-image: url("{{ asset('img/wall5.jpg') }}");
+		background-image: url("{{ asset('img/wall6.jpg') }}");
 		background-size: cover;
 		background-attachment: fixed;
 		background-position: center;
@@ -75,6 +75,10 @@
     .navbar .menu-fix {
         visibility: visible !important;
     }
+	.overImage:hover img
+	{
+		opacity: .4;
+	}
 </style>
 
 @endsection
@@ -103,7 +107,7 @@
 
 				</div>
 
-				<div class="header-family-content" style="padding-top:4vw;position:relative;text-align: center;">
+				<div class="header-family-content" style="padding-top:3vw;position:relative;text-align: center;">
 					<div class="wow fadeInUpBig" data-wow-delay="1s">
 						<img src="{{URL::to('img/MeetMe1.png')}}" style="width:60vw;height:25vw;">
 					</div>
@@ -115,7 +119,7 @@
 
 
 
-		<div class="header-family-content section" style="padding: 0vw; width: 100%;height:24vw;background-color:#0f121b;font-size: 10px;text-align: center;">
+		<div class="header-family-content section" style="padding: 0vw; width: 100%;height:24vw;background-color:#697c9c;font-size: 10px;text-align: center;">
 			<!-- preview -->
 			<div class="text" style="height:10vw;padding-top:4vw;">
 				<div class="wow fadeIn">
@@ -136,26 +140,30 @@
 			<!-- circle -->
 			<div class="header-family-content" style="padding-top: 7vw;width:70vw;height:28vw">
 				<div class="wow fadeInLeftBig">
-					<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 18vw;margin-top:1vw">
-						<p style="color:black;font-size:2vw;padding-top:1vw;padding-left:1vw; height:8vw; width:8vw">
-                            <img src="{{URL::to('img/a.svg')}}">
-						</p>
+					<div class="overImage">
+						<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 18vw;margin-top:1vw">
+							<div style="font-size:2vw;">
+								<img onclick="myFunction()" src="{{URL::to('img/a.svg')}}">
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="wow fadeInUpBig">
-					<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 43.5vw; margin-top:1vw">
-						<p style="color:black;font-size:2vw;padding-top:1vw;padding-left:1vw; height:8vw; width:8vw">
-                            <img src="{{URL::to('img/b.svg')}}">
-
-                        </p>
+					<div class="overImage">
+						<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 43.5vw; margin-top:1vw">
+							<div style="font-size:2vw;">
+								<img onclick="myFunction2()" src="{{URL::to('img/b.svg')}}">
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="wow fadeInRightBig">
-					<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw;margin-left: 69vw;margin-top:1vw">
-						<p style="color:black;font-size:2vw;padding-top:1vw;padding-left:1vw; height:8vw; width:8vw">
-                            <img src="{{URL::to('img/c.svg')}}">
-
-                        </p>
+					<div class="overImage">
+						<div class="ui circular segment"  style="position:absolute; height: 12vw;width:12vw;margin-left: 69vw;margin-top:1vw">
+							<div style="font-size:2vw; ">
+								<img onclick="myFunction3()" src="{{URL::to('img/c.svg')}}">
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -163,6 +171,11 @@
 
 		<div class="parallax" >
 			<div class="second" style="height: 30vw;">
+				<div  class="ui grid" style="position:relative; display:flex; align-items:center; width:100%;padding-top:30vw;">
+					<div class="ui segment" id="myDIV"  style="background-color:white;display:none;position:absolute;height:100px;width:500px;margin:225px 615px">a</div>
+					<div class="ui segment" id="myDIV2" style="background-color:white;display:none;position:absolute;height:100px;width:500px;margin:225px 615px">b</div>
+					<div class="ui segment" id="myDIV3" style="background-color:white;display:none;position:absolute;height:100px;width:500px;margin:225px 615px">c</div>
+				</div>
 			</div>
 		</div>
 
@@ -261,13 +274,31 @@
 	<script>
 
 		new WOW().init();
+		function myFunction() {
+			var x = document.getElementById("myDIV");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
+		function myFunction2() {
+			var x = document.getElementById("myDIV2");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
+		function myFunction3() {
+			var x = document.getElementById("myDIV3");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
 
-        $(document).ready(function(){
-            if($(".navbar").offset().top > 0) {
-                $('.navbar .wow').each(function(){
-                    $(this).addClass('menu-fix');
-                });
-            }
-        });
+
     </script>
 @endsection
