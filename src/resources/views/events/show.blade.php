@@ -8,6 +8,21 @@
         </div>
     @endif
 
+    @if (isset($unregistered))
+        <div class="ui error message">
+            <div class="header">
+                There were some errors inviting some partecipants
+            </div>
+            <p>Some partecipants cannot be invited to this event. They need to register on the website first.</p>
+            <p>Here's a list of uninvited partecipants</p>
+            <ul class="list">
+                @foreach ($unregistered as $person)
+                    <li>{{ $person->email }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="ui header">
         Event: {{ $event->title }} @if (! $event->public)<i class="lock icon" title="(Private)"></i>@endif
 
