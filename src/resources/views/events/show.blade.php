@@ -10,11 +10,12 @@
 
     <div class="ui header">
         Event: {{ $event->title }} @if (! $event->public)<i class="lock icon" title="(Private)"></i>@endif
-        //Aggiungere update
+
         @if($event->creator->user->id == Auth::user()->id)
         <div class=" right floated ui labeled button" tabindex="0">
             <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $event->id])}}">
-                <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
+                @method('delete')
+                @csrf
                 <button class=" circular mini compact eraser ui red button" type="submit">Elimina Evento</button>
             </form>
         </div>
@@ -58,7 +59,8 @@
                 @if($event->creator->user->id == Auth::user()->id)
                     <div class=" right floated ui labeled button" tabindex="0">
                         <form class="right floated" method="POST" action="{{route('events.partecipants.delete', ['event' => $event->id, 'email'=>$partecipant->id] )}}">
-                            <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
+                            @method('delete')
+                            @csrf
                             <button class="icon circular mini compact eraser ui red button" type="submit"><i class="close icon"> </i> </span></button>
                         </form>
                     </div>

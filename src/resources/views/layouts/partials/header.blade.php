@@ -6,7 +6,7 @@
         <a class="item" href="{{ route('account.settings') }}">Settings</a>
         <a class="item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
+            @csrf
         </form>
     @else
         <a href="{{ route('register') }}" class="item">Sign up</a>
@@ -27,7 +27,7 @@
                 <a class="item" href="{{ route('account.settings') }}">Settings</a>
                 <a class="item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
+                    @csrf
                 </form>
             </div>
         @else
