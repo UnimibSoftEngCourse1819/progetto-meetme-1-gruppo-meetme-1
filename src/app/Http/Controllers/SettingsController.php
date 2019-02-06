@@ -20,12 +20,12 @@ class SettingsController extends Controller
         $this->middleware('auth');
     }
 
-        /**
+    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function edit()//non uso la edit?
+    public function edit()
     {
         $user_id = Auth::id();
 
@@ -33,7 +33,7 @@ class SettingsController extends Controller
         return view('settings', compact('emails'));
     }
 
-     /**
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -42,7 +42,7 @@ class SettingsController extends Controller
      */
     public function update(Request $request, User $user)
     {
-    	$data = $this->validate(request(), [
+    	$this->validate(request(), [
     		'first_name' => 'required',
     		'last_name' => 'required',
             'oldPassword' => 'required_with:password',

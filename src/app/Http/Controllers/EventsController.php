@@ -29,8 +29,8 @@ class EventsController extends Controller
      */
     public function index()
     {
-        request()->user()->load('emails.events');
-        return view('events.history');
+        $emails = request()->user()->emails;
+        return view('events.history', compact('emails'));
     }
 
     /**
@@ -59,20 +59,16 @@ class EventsController extends Controller
         $models = $this->mapModels($partecipants);
 
         $invited = $models->filter(function ($model) {
-            return $model !== null;
+            return $model instanceof Email;
         });
         $unregistered = $models->filter(function ($model) {
-            return $model === null;
+            return ! ($model instanceof Email);
         });
 
         $event->partecipants()->syncWithoutDetaching($invited->pluck('id'));
 
-        $view = view('events.show', ['event' => $event]);
-        if ($unregistered->count() > 0) {
-            $view->with('unregistered', $unregistered);
-        }
-
-        return $view;
+        return redirect()->route('events.show', ['event' => $event])
+            ->with('unregistered', $unregistered);
     }
 
     /**
@@ -98,7 +94,7 @@ class EventsController extends Controller
         $attributes = request()->only('title', 'description', 'public');
         $attributes['public'] = (bool)$attributes['public'];
 
-        return tap(Event::make($attributes), function($event) use ($email) {
+        return tap(Event::make($attributes), function ($event) use ($email) {
             $email->events()->save($event);
             $event->timeslots()->saveMany($this->buildTimeSlots());
         });
@@ -135,7 +131,7 @@ class EventsController extends Controller
     private function mapModels($partecipants)
     {
         return $partecipants->map(function ($partecipant) {
-            return Email::where('email', $partecipant)->first();
+            return (Email::where('email', $partecipant)->first()) ?: $partecipant;
         });
     }
 

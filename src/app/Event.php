@@ -68,4 +68,9 @@ class Event extends Model
     {
         return $this->hasMany(TimeSlot::class);
     }
+
+    public function latest()
+    {
+        return $this->orderBy('created_at', 'desc');
+    }
 }

@@ -10,15 +10,15 @@
     </div>
 
     <div class="ui top attached tabular menu" id="emails">
-        @foreach (request()->user()->emails as $email)
+        @foreach ($emails as $email)
             <a class="@if ($loop->index == 0) active @endif item" data-tab="tab-{{ $loop->index }}">
                 {{ $email->email }}
             </a>
         @endforeach
     </div>
-    @foreach (request()->user()->emails as $email)
+    @foreach ($emails as $email)
         <div class="ui bottom relaxed attached segment @if ($loop->index == 0) active @endif tab" data-tab="tab-{{ $loop->index }}">
-            @forelse ($email->events as $event)
+            @forelse ($email->events()->latest()->get() as $event)
                 <div class="item event">
                     <div class="header">
                         <a class="floated content" href="{{ route('events.show', ['id' => $event->id]) }}">

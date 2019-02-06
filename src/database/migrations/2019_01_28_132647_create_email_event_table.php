@@ -19,7 +19,7 @@ class CreateEmailEventTable extends Migration
             $table->unsignedInteger('email_id');
             $table->unsignedInteger('event_id');
 
-            $table->foreign('email_id')->references('id')->on('emails');
+            $table->foreign('email_id')->references('id')->on('emails')->onDelete('cascade');
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
