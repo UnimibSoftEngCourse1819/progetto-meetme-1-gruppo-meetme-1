@@ -159,19 +159,37 @@ class EventsController extends Controller
      */
     public function edit(Event $event)
     {
+        $this->authorized('own', $event);
         return view('events.edit', compact('event'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\EventCreationRequest  $request
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(EventCreationRequest $request, Event $event)
     {
-        //
+        $this->authorized('edit', $event);
+
+        $event->update(request(['title', 'description', 'public']));
+
+
+        $timeslots = collect(request('events'))->map(function ($timeslot) use ($event) {
+            $data = json_decode($timeslot);
+
+            $conditions = [
+                ['from', $data->start],
+                ['to', $data->end]
+            ];
+
+            return (TimeSlot::where($conditions)->first()) ?: $timeslot;
+        });
+
+        dd($timeslots);
+
     }
 
     /**

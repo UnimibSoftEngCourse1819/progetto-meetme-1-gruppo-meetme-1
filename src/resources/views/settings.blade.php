@@ -89,7 +89,7 @@
 							<form method="POST" action="{{url("accounts/emails/")}}/{{$em->id}}">
 								@method('delete')
 								@csrf
-								<button class="negative ui button" type="submit">delete</button>
+								<button class="negative ui button" type="submit">Delete</button>
 							</form>
 						</div>
 					</div>
