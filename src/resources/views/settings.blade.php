@@ -3,8 +3,8 @@
 	<div class="ui stackable two column text centered grid">
 		<div class="column">
 			<form class="ui form" method="POST" action="">
-				{{ csrf_field() }}
-				{{ method_field('PATCH') }}
+				@csrf
+				@method('PATCH')
 				@if(session()->has('message'))
 					<div class="ui positive message">
 					  <i class="close icon"></i>
@@ -60,7 +60,7 @@
 	<div class="ui stackable four column text centered grid">
 		<div class="column">
 			<form class="ui form" method="POST" action='{{url("accounts/emails")}}'>
-				{{ csrf_field() }}
+				@csrf
 				<div class="field">
 					<label>Email</label>
 					<div class="ui right action input">
@@ -78,8 +78,8 @@
 					<div class="field">
 						<div class="ui buttons">
 							<form class="ui form" method="POST" action="{{url('accounts/emails')}}/{{$em->id}}">
-								{{ csrf_field() }}
-								{{ method_field('PATCH') }}
+								@csrf
+								@method('PATCH')
 								<div class="ui right action input">
 									<input type="text" name="email" value="{{$em->email}}">
 									<button class="ui blue button" type="submit">Update</button>
@@ -87,7 +87,8 @@
 							</form>
 							<div class="or"></div>
 							<form method="POST" action="{{url("accounts/emails/")}}/{{$em->id}}">
-								<input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
+								@method('delete')
+								@csrf
 								<button class="negative ui button" type="submit">delete</button>
 							</form>
 						</div>

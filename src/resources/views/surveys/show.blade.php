@@ -32,7 +32,7 @@
 
     	@foreach($partecipants as $pt)
       <tr>
-        <td data-label="Name"><b>{{$pt->email}}</b>></td>
+        <td data-label="Name"><b>{{$pt->email}}</b></td>
         @foreach($time_slots as $ts)
         	@if($ts->voters()->where('emails.id', $pt->id)->count() == 0 && Auth::user()->id == $pt->user_id)
         		<td class="center aligned"><form action="" method="POST"> @csrf<button class="ui teal button">vota</button> <input type="hidden" id="custId" name="email_id" value="{{$pt->id}}"> <input type="hidden" id="custId" name="time_slot_id" value="{{$ts->id}}"></form></td>

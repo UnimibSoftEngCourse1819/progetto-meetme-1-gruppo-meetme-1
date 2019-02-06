@@ -18,8 +18,9 @@
                         <div class="item">
                             @can('edit', $event)
                             <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $owned->id])}}">
-                                <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
-                                <button class="  mini compact eraser ui red button" type="submit">Delete</button>
+                                @method('delete')
+                                @csrf
+                                <button class="ui red button" type="submit">Delete</button>
                             </form>
                             @endcan
                             <i class="calendar alternate icon"></i>
@@ -54,8 +55,9 @@
                                     <a href="{{route('events.edit', ['event' => $owned->id])}}" class="ui green button">Update</a>
                                     <div class="or"></div>
                                     <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $owned->id])}}">
-                                        <input type="hidden" name="_method" value="DELETE">{{ csrf_field() }}
-                                        <button class="  mini compact eraser ui red button" type="submit">Delete</button>
+                                        @method('delete')
+                                        @csrf
+                                        <button class="ui red button" type="submit">Delete</button>
                                     </form>
 
                                 </div>

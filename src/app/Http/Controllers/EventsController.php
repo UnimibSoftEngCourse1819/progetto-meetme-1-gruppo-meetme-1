@@ -54,12 +54,11 @@ class EventsController extends Controller
         $event = $this->createEvent($this->validateUserEmailAccount());
 
         $partecipants = collect(request()->partecipants);
-        // $this->fireInvitationEmails($event, $partecipants);
+        $this->fireInvitationEmails($event, $partecipants);
 
         $models = $this->mapModels($partecipants);
 
         $invited = $models->filter(function ($model) {
-            dump($model);
             return $model !== null;
         });
         $unregistered = $models->filter(function ($model) {
@@ -70,7 +69,7 @@ class EventsController extends Controller
 
         $view = view('events.show', ['event' => $event]);
         if ($unregistered->count() > 0) {
-            $view->with('unregistered', $invited);
+            $view->with('unregistered', $unregistered);
         }
 
         return $view;
