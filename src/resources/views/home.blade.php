@@ -20,7 +20,7 @@
                             <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $owned->id])}}">
                                 @method('delete')
                                 @csrf
-                                <button class="  mini compact eraser ui red button" type="submit">Delete</button>
+                                <button class="ui red button" type="submit">Delete</button>
                             </form>
                             @endcan
                             <i class="calendar alternate icon"></i>
@@ -57,7 +57,7 @@
                                     <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $owned->id])}}">
                                         @method('delete')
                                         @csrf
-                                        <button class="  mini compact eraser ui red button" type="submit">Delete</button>
+                                        <button class="ui red button" type="submit">Delete</button>
                                     </form>
 
                                 </div>
