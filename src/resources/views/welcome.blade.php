@@ -72,7 +72,9 @@
 		position: absolute;
 	}
 
-
+    .navbar .menu-fix {
+        visibility: visible !important;
+    }
 </style>
 
 @endsection
@@ -135,14 +137,14 @@
 			<div class="header-family-content" style="padding-top: 7vw;width:70vw;height:28vw">
 				<div class="wow fadeInLeftBig">
 					<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 18vw;margin-top:1vw">
-						<p style="color:black;font-size:2vw;padding-top:0vw">
-							<img src="{{URL::to('img/a.svg')}}">
+						<p style="color:black;font-size:2vw;padding-top:1vw;padding-left:1vw; height:8vw; width:8vw">
+                            <img src="{{URL::to('img/a.svg')}}">
 						</p>
 					</div>
 				</div>
 				<div class="wow fadeInUpBig">
 					<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 43.5vw; margin-top:1vw">
-						<p style="color:black;font-size:2vw;padding-top:0vw">
+						<p style="color:black;font-size:2vw;padding-top:1vw;padding-left:1vw; height:8vw; width:8vw">
                             <img src="{{URL::to('img/b.svg')}}">
 
                         </p>
@@ -150,7 +152,7 @@
 				</div>
 				<div class="wow fadeInRightBig">
 					<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw;margin-left: 69vw;margin-top:1vw">
-						<p style="color:black;font-size:2vw;padding-top:0vw">
+						<p style="color:black;font-size:2vw;padding-top:1vw;padding-left:1vw; height:8vw; width:8vw">
                             <img src="{{URL::to('img/c.svg')}}">
 
                         </p>
@@ -260,12 +262,12 @@
 
 		new WOW().init();
 
-        $(document).ready(function () {
-            var $behindContainer = $('#behind-container');
-            function myFunction() {
-                $behindContainer.slideToggle()
+        $(document).ready(function(){
+            if($(".navbar").offset().top > 0) {
+                $('.navbar .wow').each(function(){
+                    $(this).addClass('menu-fix');
+                });
             }
-            $('#scroll-footer').on('click', myFunction);
         });
     </script>
 @endsection
