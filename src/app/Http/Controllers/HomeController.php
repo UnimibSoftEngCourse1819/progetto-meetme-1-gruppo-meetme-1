@@ -38,7 +38,7 @@ class HomeController extends Controller
             return $carry + $email->events()->count();
         });
 
-        $events = \DB::table( 'events' )
+        $events = DB::table( 'events' )
             ->join('email_event', 'events.id', '=', 'email_event.event_id')
             ->join('emails', 'emails.user_id', '=', 'email_event.email_id')
             ->where('emails.user_id', auth()->user()->id)
