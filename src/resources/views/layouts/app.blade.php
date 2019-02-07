@@ -94,11 +94,15 @@
     @include('layouts.partials.footer')
     @yield('custom-scripts')
     <script>
-        $('#toc').sidebar({
-            dimPage: true,
-            transition: 'overlay',
-            mobileTransition: 'uncover'
-        }).sidebar('attach events', '.launch.item');
+        $(document).ready(function () {
+            $('#toc').sidebar({
+                dimPage: true,
+                transition: 'overlay',
+                mobileTransition: 'uncover'
+            });
+
+            $('#toc').sidebar('attach events', '.launch.item');
+        });
     </script>
 </body>
 </html>

@@ -252,13 +252,12 @@
 							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
 								<h1 style="color:white;
 										  font-size: 30px;" >
-									AAA
+									ILike
 								</h1>
 								<p style="color:white;
 										  font-size: 30px;
 										  padding-top:10%;">
-									Un calendario riassumerà tutte le informazioni relative agli eventi</br>
-									a cui vuoi partecipare.
+									Un semplice click per partecipare all' evento.
 								</p>
 							</div>
 						</div>
@@ -275,8 +274,7 @@
                                                  align-items: center;
                                                  width: 100%;
                                                  height: 5%;
-                                                 justify-content: center
-">
+                                                 justify-content: center">
 			<div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 				<div>
 					<p style="color:white;
@@ -292,18 +290,19 @@
 
 	<!-- mobile -->
 	<div class="content" id="mobile-content">
-		<div class="parallax" style="background-color:#FDFFFC;height: 150vw;">
-			<div class="header-family-content" id="a" style="text-align: center; padding-right:5vw;padding-top:35vw;">
+		<div class="parallax" style="background-color:#FDFFFC;height: 100%;">
+			<div class="header-family-content" id="a" style="text-align: center; padding-top:30%;">
 				<div class="wow" >
 					<div class="wow zoomIn" style="color:#293347">
-						<h1 style="font-size:15vw;">
+						<h1 style="font-size:50px;">
 							EVENT PLANNER
 						</h1>
 
 					</div>
 					<div class="wow zoomInDown" data-wow-delay="0.5s" style="color:#293347;">
 
-						<h4 style="font-size:10vw;margin-left:3vw;font-family: 'PT Sans', sans-serif;">
+						<h4 style="font-size:25px;
+								   font-family: 'PT Sans', sans-serif;">
 							Like Never Before
 						</h4>
 					</div>
@@ -311,32 +310,133 @@
 
 			</div>
 
-			<div class="header-family-content" style="padding-top:115vw;position:relative;text-align: center;">
-				<div class="wow fadeInUpBig" data-wow-delay="1s">
-					<img src="{{ URL::to('img/MeetMe1.png') }}" style="width:90vw;height:35vw;">
+			<div class="header-family-content" style="position: relative;
+													  margin: 23% 0% 0% 0%;">
+				<div class="wow fadeInUp" data-wow-delay="1s" style="visibility: visible;
+																	 animation-delay: 1s;
+																	 animation-name: fadeInUp;">
+					<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/MeetMe1.png" style="width:100%;">
 				</div>
 			</div>
 		</div>
 
-		<div class="header-family-content"style="padding: 15vw; width: 100%;background-color:#0f121b;font-size: 10px;text-align: center;">
+		<div class="header-family-content section" style="
+														  width: 100%;
+														  height: 100%;
+														  background-color: #516b98;
+														  padding-top: 30%;
+														  padding-bottom: 50%;
+														  align-items: center;
+														  text-align: center;
+														  ">
+			<div class="ui container" style="display: flex; align-items: center;">
+				<!-- preview -->
+				<div class="text" style="flex: 1;">
+					<div style="/* padding-top:5% */">
+						<div class="ui list" style="color:white;
+												    font-size: 30px;">
+							<div class="item" style="margin: 5% 0 5% 0;"> <h1>Portabilità</h1> assoluta </div>
+							<div class="item"> <h1>Gestione</h1> eventi intuitiva</div>
+							<div class="item"> <h1>Partecipazione</h1> coinvolgente </div>
+						</div>
+					</div>
+				</div>
 
-			<div class="header-family-content" style="padding-top: 8vw;width:70vw;height:28vw">
-				<div class="ui segment" style="position:absolute; height: 20vw;width:20vw; margin-left: 0vw; margin-top: 0vw">
-					This segment will appear to the left
-				</div>
-				<div class="ui segment" style="position:absolute; height: 20vw;width:20vw; margin-left: 25vw; margin-top:0vw">
-					This segment will appear to the left
-				</div>
-				<div class="ui segment" style="position:absolute; height: 20vw;width:20vw;margin-left: 50vw; margin-top:0vw">
-					This segment will appear to the left
-				</div>
+
 			</div>
-
 		</div>
 
-		<div class="parallax" style="background-color:#FDFFFC;height: 100%;">
+		<div class="parallax">
+			<div class="second">
+				<div class="ui container" style="display: flex; align-items: center;">
+					<div style="position: relative;
+								display: flex;
+								padding: 5%;
+								align-items: center;
+								justify-content: center;">
+						<div class="box" id="box-1" style="background-color:transparent" >
+							<div class="header-family-content" style="position: relative;
+																	  display: flex;
+																	  align-items: center;
+																	  justify-content: center;">
+								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/smart.png" style="border-radius: 10px 10px;width:200px;">
+							</div>
+							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
+								<h1 style="color:white;
+										  font-size: 30px;" >
+									Monitora i sondaggi  mentre sei in movimento
+								</h1>
+								<p style="color:white;
+										  font-size: 30px;
+										  padding-top:5%;">
+									Ricevi notifiche sulle attività recenti.
+									L'app MeetMe è gratuita e funziona senza problemi<br> su tutti i dispositivi principali.
+								</p>
+							</div>
+						</div>
+
+						<div class="box active " id="box-2" >
+							<div class="header-family-content" style="position: relative;
+																	  display: flex;
+																	  align-items: center;
+																	  justify-content: center;">
+								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/calendar.png" style="border-radius: 10px 10px; ">
+							</div>
+							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
+								<h1 style="color:white;
+										  font-size: 30px;" >
+									Non devi cambiare pagina per gestire gli eventi.<br>
+								</h1>
+								<p style="color:white;
+										  font-size: 30px;
+										  padding-top:5%;">
+									Un calendario riassumerà tutte le informazioni relative agli eventi
+									a cui vuoi partecipare.
+								</p>
+							</div>
+						</div>
+						<div class="box" id="box-3">
+							<div class="header-family-content" style="position: relative;
+																	  display: flex;
+																	  align-items: center;
+																	  justify-content: center;
+																	  ">
+								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/like.png" style="border-radius: 10px 10px;width:350px;">
+							</div>
+							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
+								<h1 style="color:white;
+										  font-size: 30px;" >
+									ILike
+								</h1>
+								<p style="color:white;
+										  font-size: 30px;
+										  padding-top:10%;">
+									Un semplice click per partecipare all' evento.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
+
+		<div class="header-family-content" style="position: absolute;
+                                                 display: flex;
+                                                 background-color: #252e3d;
+                                                 align-items: center;
+                                                 width: 100%;
+                                                 height: 5%;
+                                                 justify-content: center">
+			<div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+				<div>
+					<p style="color:white;
+                                  font-size: 1vw;">
+						Made with <i class="creative commons icon"></i> in Italy
+					</p>
+				</div>
+			</div>
 		</div>
 
 
@@ -350,32 +450,11 @@
 	<!--
 	<script src="{{ asset('js/anime.min.js') }}"></script>
 	<script src="{{ asset('js/appear.js') }}"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 	<script>
 
 		new WOW().init();
-		/*
-		function myFunction() {
-			var x = document.getElementById("myDiv1");
-			var y = document.getElementById("myDiv2");
-			var z = document.getElementById("myDiv3");
 
-			if (x.style.display === "none") {
-				x.style.display = "block";
-			} else {
-				x.style.display = "none";
-			}
-		}
-		/*
-		<div class="icon" id="icon-1" data-target="#box-1"></div>
-				<div class="icon" id="icon-2" data-target="#box-2"></div>
-				<div class="icon" id="icon-3" data-target="#box-3"></div>
-
-				<div class="box" id="box-1"></div>
-				<div class="box" id="box-2"></div>
-				<div class="box active" id="box-3"></div>
-*/
 		$(document).ready(function () {
 			$('.overImage').on('click', function () {
 				var target = $(this).data('target');
@@ -385,6 +464,7 @@
 				$target.addClass('active');
 			});
 		});
+
 
     </script>
 @endsection
