@@ -67,15 +67,19 @@
 	.overImage:hover img
 	{
 		opacity: .4;
+        cursor: pointer;
+
+    }
+	img {
+		max-width: 100%;
 	}
 	.box{
 		display: none;
-		background-color: white;
-		height: 200px;
-		width: 400px;
+		height:100%;
+		width: 100%;
 	}
 	.box.active{
-		display: block;
+		display: flex;
 		border-radius: 10px;
 		text-align: center;
 		justify-content: center;
@@ -90,16 +94,19 @@
 	<!-- desktop -->
 	<div class="content" id="desktop-content">
 
-		<div class="parallax" style="background-color:#FDFFFC;height:100%">
+		<div class="parallax" style="background-color:#FDFFFC;
+		                             height:100%">
 			<div class="header-family-content" style="height:100%;">
-				<div class="wow" >
-					<div style="color:#293347; margin:3% 10%;" >
+				<div class="wow animated" style="visibility: visible;">
+					<div style="color:#293347;
+					            margin:3% 10%;">
 						<h1 style="font-size:150%;">
 							EVENT PLANNER
 						</h1>
 
-						<div class="wow zoomInDown" data-wow-delay="0.3s" style="color:#293347;">
-							<h4 style="font-size:60%;font-family: 'PT Sans', sans-serif;">
+						<div class="wow zoomInDown" data-wow-delay="0.3s" style="color: rgb(41, 51, 71); visibility: visible; animation-delay: 0.3s; animation-name: zoomInDown;">
+							<h4 style="font-size:60%;
+							           font-family: 'PT Sans', sans-serif;">
 								Like Never Before
 							</h4>
 						</div>
@@ -109,56 +116,75 @@
 				<div class="header-family-content" style="position: relative;
 														  margin: 16% 0% 0% 0%;
 														  ">
-					<div class="wow fadeInUpBig" data-wow-delay="1s">
-						<img src="{{URL::to('img/MeetMe1.png')}}" style="width:100%;">
+					<div class="wow fadeInUp" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">
+						<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/MeetMe1.png" style="width:100%;">
 					</div>
 				</div>
 
 			</div>
 		</div>
 
-		<div class="header-family-content section" style="width: 100%;
+		<div class="header-family-content section" style="
+														  width: 100%;
 														  height:100%;
 														  background-color: #516b98;
-														  font-size: 20%;">
-			<!-- preview -->
-			<div class="text" style="width:100%;margin:2% 2% 2% 12%">
-				<div  style="padding-top:5%">
-					<div class="ui list" style="color:white;font-size: 40px;">
-								<div class="item"> Portabilità assoluta </div>
-								<div class="item"> Gestione eventi intuitiva</div>
-								<div class="item"> Partecipazione eventi coinvolgente </div>
+														  /* font-size: 20%; */
+														  padding: 60px 60px;
+														  display: flex;
+														  align-items: center;
+														  ">
+			<div class="ui container" style="display: flex; align-items: center;">
+				<!-- preview -->
+				<div class="text" style="flex: 1;">
+					<div style="/* padding-top:5% */">
+						<div class="ui list" style="color:white;
+													font-size: 40px;">
+							<div class="item"> Portabilità assoluta </div>
+							<div class="item"> Gestione eventi intuitiva</div>
+							<div class="item"> Partecipazione coinvolgente </div>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<!-- circle -->
-			<div class="header-family-content" style="width:100%;margin: 4% 10% 4% 8%">
-				<div class="wow fadeInLeftBig" data-wow-delay="0.5s" data-wow-duration="0.5s">
-					<div class="overImage">
-						<div class="icon" data-target="#box-1">
-							<div class="ui circular segment" style=" height:180px; width:180px;">
-								<div style="font-size:2vw;">
-									<img src="{{URL::to('img/a.svg')}}">
-								</div>
+				<!-- circle -->
+				<div class="header-family-content" style="flex: 1; justify-content: space-evenly;">
+					<div class="overImage" data-target="#box-1">
+						<div class="wow fadeInLeftBig"data-wow-delay="0.6s">
+							<div class="ui circular segment" style="
+																			height: 120px;
+																			/* display: block; */
+																			width: 120px;
+																			line-height: 0;        cursor: pointer;
+
+																			">
+								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/a.svg">
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="wow fadeInLeftBig" data-wow-delay="0s" data-wow-duration="0.5s">
-					<div class="overImage">
-						<div class="icon" data-target="#box-2">
-							<div class="ui circular segment" style="position:relative; height:180px; width:180px; left: 30%;">
-								<img src="{{URL::to('img/b.svg')}}">
+					<div class="overImage" data-target="#box-2">
+						<div class="wow fadeInLeftBig" data-wow-delay="0.3s">
+							<div class="ui circular segment" style="
+																			position:relative;
+																			height: 120px;
+																			width: 120px;
+																			line-height: 0;        cursor: pointer;
+
+																			">
+								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/b.svg">
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="wow fadeIn" data-wow-duration="0.5s">
-					<div class="overImage">
-						<div class="icon" data-target="#box-3">
-							<div class="ui circular segment"  style="position:relative; height:180px; width:180px;left:60%;">
-								<img src="{{URL::to('img/c.svg')}}">
+					<div class="overImage" data-target="#box-3">
+						<div class="wow fadeInLeft	Big" data-wow-delay="0s">
+							<div class="ui circular segment" style="
+																			 /* position:relative; */
+																			 height: 120px;
+																			 width: 120px;
+																			 margin: 0;
+																			 line-height: 0;        cursor: pointer;
+
+																			 ">
+								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/c.svg">
 							</div>
 						</div>
 					</div>
@@ -166,56 +192,100 @@
 			</div>
 		</div>
 
-		<div class="parallax" >
-			<div class="second" style="height: 30vw;">
-				<div style="position: relative;
-							display: flex;
-							align-items: center;
-							width: 100%;
-							height: 120%;
-							justify-content: center;
-							">
-					<div class="wow fadeInUpBig" data-wow-delay="1s">
-						<div class="box" id="box-1">
-							a
+		<div class="parallax">
+			<div class="second">
+				<div class="ui container" style="display: flex; align-items: center;">
+					<div style="position: relative;
+								display: flex;
+								padding: 5%;
+								align-items: center;
+								justify-content: center;">
+						<div class="box" id="box-1" style="background-color:transparent" >
+							<div class="header-family-content" style="position: relative;
+																	  display: flex;
+																	  align-items: center;
+																	  justify-content: center;">
+								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/smart.png" style="border-radius: 10px 10px;width:200px;">
+							</div>
+							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
+								<h1 style="color:white;
+										  font-size: 30px;" >
+									Monitora i sondaggi  mentre sei in movimento
+								</h1>
+								<p style="color:white;
+										  font-size: 30px;
+										  padding-top:5%;">
+									Ricevi notifiche sulle attività recenti.
+									L'app MeetMe è gratuita e funziona senza problemi<br> su tutti i dispositivi principali.
+								</p>
+							</div>
 						</div>
-						<div class="box active" id="box-2">
-							b
+
+						<div class="box active " id="box-2" >
+							<div class="header-family-content" style="position: relative;
+																	  display: flex;
+																	  align-items: center;
+																	  justify-content: center;">
+								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/calendar.png" style="border-radius: 10px 10px; ">
+							</div>
+							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
+								<h1 style="color:white;
+										  font-size: 30px;" >
+									Non devi cambiare pagina per gestire gli eventi.<br>
+								</h1>
+								<p style="color:white;
+										  font-size: 30px;
+										  padding-top:5%;">
+									Un calendario riassumerà tutte le informazioni relative agli eventi
+									a cui vuoi partecipare.
+								</p>
+							</div>
 						</div>
 						<div class="box" id="box-3">
-							c
+							<div class="header-family-content" style="position: relative;
+																	  display: flex;
+																	  align-items: center;
+																	  justify-content: center;
+																	  ">
+								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/like.png" style="border-radius: 10px 10px;width:350px;">
+							</div>
+							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
+								<h1 style="color:white;
+										  font-size: 30px;" >
+									AAA
+								</h1>
+								<p style="color:white;
+										  font-size: 30px;
+										  padding-top:10%;">
+									Un calendario riassumerà tutte le informazioni relative agli eventi</br>
+									a cui vuoi partecipare.
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="header-family-content"style="padding: 0vw; width: 100%;height:24vw;background-color:#516b98;font-size: 10px;text-align: center;">
-			<div class="text" style="height:10vw;padding-top:4vw;">
-				<div class="wow fadeIn">
-					<h4 style="color:white;font-size: 2vw;">
-						WE OFFER
-					</h4>
-				</div>
-				<div  style="padding-top:2vw">
-					<p style="color:white;font-size: 1vw;">
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
-						Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
-						when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br>
-						when an unknown printer took a galley of type and scrambled.
+
+
+		<div class="header-family-content" style="position: absolute;
+                                                 display: flex;
+                                                 background-color: #252e3d;
+                                                 align-items: center;
+                                                 width: 100%;
+                                                 height: 5%;
+                                                 justify-content: center
+">
+			<div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+				<div>
+					<p style="color:white;
+                                  font-size: 1vw;">
+						Made with <i class="creative commons icon"></i> in Italy
 					</p>
 				</div>
 			</div>
 		</div>
-        <div class="header-family-content"style="padding: 0vw; width: 100%;height:5vw;background-color:black;font-size: 10px;text-align: center;">
-                <div class="wow fadeInUp">
-                    <div  style="padding-top:2vw">
-                        <p style="color:white;font-size: 1vw;">
-                            footer
-                        </p>
-                    </div>
-            </div>
-        </div>
 
 	</div>
 
@@ -307,7 +377,7 @@
 				<div class="box active" id="box-3"></div>
 */
 		$(document).ready(function () {
-			$('.icon').on('click', function () {
+			$('.overImage').on('click', function () {
 				var target = $(this).data('target');
 				var $target = $(target);
 
