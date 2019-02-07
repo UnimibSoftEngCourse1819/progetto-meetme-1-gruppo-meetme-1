@@ -278,7 +278,7 @@
 				<div>
 					<p style="color:white;
                                   font-size: 20px">
-						Made with <i class="creative commons icon"></i> in Italy
+						Made with <i class="heart icon"></i>
 					</p>
 				</div>
 			</div>

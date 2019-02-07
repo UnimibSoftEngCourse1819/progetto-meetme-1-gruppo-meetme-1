@@ -58,11 +58,7 @@
       @endforeach
     </tbody>
   </table>
-  <form method="" action="">
-    @csrf
-    @method('patch')
-    <button class="ui red button">Red</button>
-  </form>
+
 </div>
 @endsection
 
