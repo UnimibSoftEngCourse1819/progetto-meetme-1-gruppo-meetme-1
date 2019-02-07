@@ -9,7 +9,7 @@
 	@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 	.pushable .pusher {
-		padding-top: 0rem;
+		padding-top: 0em;
 		height:auto;
 	}
 
@@ -36,24 +36,12 @@
 		position: relative;
 		z-index: 9;
 	}
-	/*
-	.parallax:after {
-		content: '';
-		position: relative;
-		padding-top:4rem;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background-color: rgba(0, 0, 0, .4);
-	}*/
 	.header-family-content {
 		font-family: 'Jura', sans-serif;
-		font-size: 80px;
+		font-size: 60px;
 		color:white;
 		width:100%;
-		height:5em;
-		padding-top: 1em;
+		height:100%;
 		background-attachment:fixed;
 		background-position:center;
 		position: relative;
@@ -79,6 +67,19 @@
 	{
 		opacity: .4;
 	}
+	.box{
+		display: none;
+		background-color: white;
+		height: 200px;
+		width: 400px;
+	}
+	.box.active{
+		display: block;
+		border-radius: 10px;
+		text-align: center;
+		justify-content: center;
+	}
+
 </style>
 
 @endsection
@@ -88,28 +89,27 @@
 	<!-- desktop -->
 	<div class="content" id="desktop-content">
 
-
-
-		<div class="parallax" style="background-color:#FDFFFC;height:  44vw;">
+		<div class="parallax" style="background-color:#FDFFFC;
+									 height: 100%;">
 			<div class="header-family-content" style="text-align: center;">
 				<div class="wow" >
-
-					<div class="wow zoomIn" style="color:#293347">
-						<h1 style="font-size:5vw;">
+					<div style="color:#293347">
+						<h1 style="font-size:100px;">
 							EVENT PLANNER
 						</h1>
 					</div>
 					<div class="wow zoomInDown" data-wow-delay="0.3s" style="color:#293347;">
-						<h4 style="font-size:2vw;margin: 1vw;font-family: 'PT Sans', sans-serif;">
+						<h4 style="font-size:40px;font-family: 'PT Sans', sans-serif;">
 							Like Never Before
 						</h4>
 					</div>
-
 				</div>
 
-				<div class="header-family-content" style="padding-top:3vw;position:relative;text-align: center;">
+				<div class="header-family-content" style="padding-top: 9%;
+														  position: relative;
+														  text-align: center;">
 					<div class="wow fadeInUpBig" data-wow-delay="1s">
-						<img src="{{URL::to('img/MeetMe1.png')}}" style="width:60vw;height:25vw;">
+						<img src="{{URL::to('img/MeetMe1.png')}}" style="width:50%">
 					</div>
 				</div>
 
@@ -119,7 +119,12 @@
 
 
 
-		<div class="header-family-content section" style="padding: 0vw; width: 100%;height:24vw;background-color:#697c9c;font-size: 10px;text-align: center;">
+		<div class="header-family-content section" style="padding: 0vw;
+														  width: 100%;
+														  height: 24vw;
+														  background-color: #516b98;
+														  font-size: 10px;
+														  text-align: center;">
 			<!-- preview -->
 			<div class="text" style="height:10vw;padding-top:4vw;">
 				<div class="wow fadeIn">
@@ -141,27 +146,33 @@
 			<div class="header-family-content" style="padding-top: 7vw;width:70vw;height:28vw">
 				<div class="wow fadeInLeftBig">
 					<div class="overImage">
-						<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 18vw;margin-top:1vw">
-							<div style="font-size:2vw;">
-								<img onclick="myFunction()" src="{{URL::to('img/a.svg')}}">
+						<div class="icon" data-target="#box-1">
+							<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 18vw;margin-top:1vw">
+								<div style="font-size:2vw;">
+									<img src="{{URL::to('img/a.svg')}}">
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="wow fadeInUpBig">
 					<div class="overImage">
-						<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 43.5vw; margin-top:1vw">
-							<div style="font-size:2vw;">
-								<img onclick="myFunction2()" src="{{URL::to('img/b.svg')}}">
+						<div class="icon" data-target="#box-2">
+							<div class="ui circular segment" style="position:absolute; height: 12vw;width:12vw; margin-left: 43.5vw; margin-top:1vw">
+								<div style="font-size:2vw;">
+									<img src="{{URL::to('img/b.svg')}}">
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="wow fadeInRightBig">
 					<div class="overImage">
-						<div class="ui circular segment"  style="position:absolute; height: 12vw;width:12vw;margin-left: 69vw;margin-top:1vw">
-							<div style="font-size:2vw; ">
-								<img onclick="myFunction3()" src="{{URL::to('img/c.svg')}}">
+						<div class="icon" data-target="#box-3">
+							<div class="ui circular segment"  style="position:absolute; height: 12vw;width:12vw;margin-left: 69vw;margin-top:1vw">
+								<div style="font-size:2vw; ">
+									<img src="{{URL::to('img/c.svg')}}">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -171,15 +182,29 @@
 
 		<div class="parallax" >
 			<div class="second" style="height: 30vw;">
-				<div  class="ui grid" style="position:relative; display:flex; align-items:center; width:100%;padding-top:30vw;">
-					<div class="ui segment" id="myDIV"  style="background-color:white;display:none;position:absolute;height:100px;width:500px;margin:225px 615px">a</div>
-					<div class="ui segment" id="myDIV2" style="background-color:white;display:none;position:absolute;height:100px;width:500px;margin:225px 615px">b</div>
-					<div class="ui segment" id="myDIV3" style="background-color:white;display:none;position:absolute;height:100px;width:500px;margin:225px 615px">c</div>
+				<div style="position: relative;
+							display: flex;
+							align-items: center;
+							width: 100%;
+							height: 120%;
+							justify-content: center;
+							">
+					<div class="wow fadeInUpBig" data-wow-delay="1s">
+						<div class="box" id="box-1">
+							a
+						</div>
+						<div class="box active" id="box-2">
+							b
+						</div>
+						<div class="box" id="box-3">
+							c
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="header-family-content"style="padding: 0vw; width: 100%;height:24vw;background-color:#0f121b;font-size: 10px;text-align: center;">
+		<div class="header-family-content"style="padding: 0vw; width: 100%;height:24vw;background-color:#516b98;font-size: 10px;text-align: center;">
 			<div class="text" style="height:10vw;padding-top:4vw;">
 				<div class="wow fadeIn">
 					<h4 style="color:white;font-size: 2vw;">
@@ -274,31 +299,36 @@
 	<script>
 
 		new WOW().init();
+		/*
 		function myFunction() {
-			var x = document.getElementById("myDIV");
-			if (x.style.display === "none") {
-				x.style.display = "block";
-			} else {
-				x.style.display = "none";
-			}
-		}
-		function myFunction2() {
-			var x = document.getElementById("myDIV2");
-			if (x.style.display === "none") {
-				x.style.display = "block";
-			} else {
-				x.style.display = "none";
-			}
-		}
-		function myFunction3() {
-			var x = document.getElementById("myDIV3");
-			if (x.style.display === "none") {
-				x.style.display = "block";
-			} else {
-				x.style.display = "none";
-			}
-		}
+			var x = document.getElementById("myDiv1");
+			var y = document.getElementById("myDiv2");
+			var z = document.getElementById("myDiv3");
 
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
+		/*
+		<div class="icon" id="icon-1" data-target="#box-1"></div>
+				<div class="icon" id="icon-2" data-target="#box-2"></div>
+				<div class="icon" id="icon-3" data-target="#box-3"></div>
+
+				<div class="box" id="box-1"></div>
+				<div class="box" id="box-2"></div>
+				<div class="box active" id="box-3"></div>
+*/
+		$(document).ready(function () {
+			$('.icon').on('click', function () {
+				var target = $(this).data('target');
+				var $target = $(target);
+
+				$('.box.active').removeClass('active');
+				$target.addClass('active');
+			});
+		});
 
     </script>
 @endsection

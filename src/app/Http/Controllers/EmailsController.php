@@ -30,11 +30,9 @@ class EmailsController extends Controller
             'email' => 'required|email|unique:emails,email',
         ]);
 
-        $email = Email::make([
+        auth()->user()->emails()->create([
             'email' => request('email')
         ]);
-
-        auth()->user()->emails()->save($email);
 
         return back();
     }
@@ -53,6 +51,7 @@ class EmailsController extends Controller
         ]);
 
         $email->update($request->only('email'));
+
         return back()->with('message', 'Email updated!');
     }
 
@@ -65,14 +64,12 @@ class EmailsController extends Controller
     public function destroy(Email $email)
     {
         if (request()->user()->emails()->count() == 1) {
-            return redirect()->back()->withErrors('On your account is just present one email, if you want to delete your current email insert another mail before ');
+            return redirect()->back()->withErrors('You need at least an email address in your account. Please insert a new one before deleting');
         }
 
-        if($email && ($email && Auth::id() == $email->user_id)){
-            $email->delete();
-                return(back());
-        }
-        redirect('/');
+        $this->authorize('own', $email);
+        $email->delete();
 
+        return back();
     }
 }

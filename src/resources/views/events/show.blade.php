@@ -8,16 +8,16 @@
         </div>
     @endif
 
-    @if (isset($unregistered))
+    @if (session('unregistered'))
         <div class="ui error message">
             <div class="header">
                 There were some errors inviting some partecipants
             </div>
             <p>Some partecipants cannot be invited to this event. They need to register on the website first.</p>
-            <p>Here's a list of uninvited partecipants</p>
+            <p>Here's a list of uninvited partecipants:</p>
             <ul class="list">
-                @foreach ($unregistered as $person)
-                    <li>{{ $person->email }}</li>
+                @foreach (session('unregistered') as $person)
+                    <li>{{ $person }}</li>
                 @endforeach
             </ul>
         </div>
@@ -27,21 +27,12 @@
         Event: {{ $event->title }} @if (! $event->public)<i class="lock icon" title="(Private)"></i>@endif
 
         @if($event->creator->user->id == Auth::user()->id)
-        <div class=" right floated ui labeled button" tabindex="0">
-            <form class="right floated" method="POST" action="{{route('events.destroy', ['event' => $event->id])}}">
-                @method('delete')
-                @csrf
-                <button class=" circular mini compact eraser ui red button" type="submit">Elimina Evento</button>
-            </form>
-        </div>
-        <div class=" right floated ui  labeled button" tabindex="0">
-            <a href="{{route('events.edit', ['event' => $event->id])}}" class="circular mini compact eraser ui green button" type="submit">Modifica Evento</a>
-        </div>
-        <div class=" right floated ui labeled button" tabindex="0">
-            <form class="right floated" method="GET" action="{{route('surveys.show', ['event' => $event->id])}}">
-                <button class="circular mini compact eraser ui teal button" type="submit">vota</button>
-            </form>
-        </div>
+            <form name="delete-event-form" style="display:none" method="POST" action="{{route('events.destroy', ['event' => $event->id])}}">@csrf @method('delete')</form>
+            <div class="ui buttons tiny right floated" tabindex="0">
+                <a href="{{ route('surveys.show', [ 'event' => $event->id ]) }}" class="ui teal button">Vota</a>
+                <a href="{{ route('events.edit', ['event' => $event->id]) }}" class="ui green button">Modifica</a>
+                <button class="ui red button" onclick="document.forms['delete-event-form'].submit()">Elimina</button>
+            </div>
         @endif
         <div class="sub header">{{ $event->created_at->diffForHumans() }}</div>
     </div>
