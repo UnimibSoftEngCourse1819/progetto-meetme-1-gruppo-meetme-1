@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Email;
-use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Email;
+use App\Mail\WelcomeMail;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -78,5 +81,18 @@ class RegisterController extends Controller
         ]));
 
         return $user;
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Auth\Events\Registered  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered($request, $user)
+    {
+        Mail::to($user->emails()->first())
+            ->send(new WelcomeMail($user));
     }
 }
