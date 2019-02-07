@@ -117,7 +117,7 @@
 														  margin: 150px 0 0 0;
 														  ">
 					<div class="wow fadeInUp" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">
-						<img src="{{ secure_asset('img/MeetMe1.png') }}" style="width:100%;">
+						<img src="{{ asset('img/MeetMe1.png') }}" style="width:100%;">
 					</div>
 				</div>
 
@@ -157,7 +157,7 @@
 																			line-height: 0;        cursor: pointer;
 
 																			">
-								<img src="{{ secure_asset('img/a.svg') }}">
+								<img src="{{ asset('img/a.svg') }}">
 							</div>
 						</div>
 					</div>
@@ -170,7 +170,7 @@
 																			line-height: 0;        cursor: pointer;
 
 																			">
-								<img src="{{ secure_asset('img/b.svg') }}">
+								<img src="{{ asset('img/b.svg') }}">
 							</div>
 						</div>
 					</div>
@@ -184,7 +184,7 @@
 																			 line-height: 0;        cursor: pointer;
 
 																			 ">
-								<img src="{{ secure_asset('img/c.svg') }}">
+								<img src="{{ asset('img/c.svg') }}">
 							</div>
 						</div>
 					</div>
@@ -205,7 +205,7 @@
 																	  display: flex;
 																	  align-items: center;
 																	  justify-content: center;">
-								<img src="{{ secure_asset('img/smart.png') }}" style="border-radius: 10px 10px;width:200px;">
+								<img src="{{ asset('img/smart.png') }}" style="border-radius: 10px 10px;width:200px;">
 							</div>
 							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
 								<h1 style="color:white;
@@ -226,7 +226,7 @@
 																	  display: flex;
 																	  align-items: center;
 																	  justify-content: center;">
-								<img src="{{ secure_asset('img/calendar.png') }}" style="border-radius: 10px 10px;">
+								<img src="{{ asset('img/calendar.png') }}" style="border-radius: 10px 10px;">
 							</div>
 							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
 								<h1 style="color:white;
@@ -247,7 +247,7 @@
 																	  align-items: center;
 																	  justify-content: center;
 																	  ">
-								<img src="{{ secure_asset('img/like.png') }}" style="border-radius: 10px 10px;width:350px;">
+								<img src="{{ asset('img/like.png') }}" style="border-radius: 10px 10px;width:350px;">
 							</div>
 							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
 								<h1 style="color:white;
@@ -315,7 +315,7 @@
 				<div class="wow fadeInUp" data-wow-delay="1s" style="visibility: visible;
 																	 animation-delay: 1s;
 																	 animation-name: fadeInUp;">
-					<img src="{{ secure_asset('img/MeetMe1.png') }}" style="width:100%;">
+					<img src="{{ asset('img/MeetMe1.png') }}" style="width:100%;">
 				</div>
 			</div>
 		</div>
