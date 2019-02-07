@@ -29,11 +29,11 @@ Route::prefix('/accounts')->name('account.')->group(function () {
 		'store', 'update', 'destroy'
 	]);
 
-    Route::get('/users', 'UsersController@index')->name('users');
-    Route::patch('/users', 'UsersController@update')->name('users.update');
+    // Route::get('/users', 'UsersController@index')->name('users');
+    // Route::patch('/users', 'UsersController@update')->name('users.update');
 
-    Route::get('/calendars', 'CalendarsController@index')->name('calendars');
-    Route::post('/calendars/sync', 'CalendarsController@sync')->name('calendars.sync');
+    // Route::get('/calendars', 'CalendarsController@index')->name('calendars');
+    // Route::post('/calendars/sync', 'CalendarsController@sync')->name('calendars.sync');
 });
 
 Auth::routes();

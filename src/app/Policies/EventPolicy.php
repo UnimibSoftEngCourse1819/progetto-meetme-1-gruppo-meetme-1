@@ -44,6 +44,7 @@ class EventPolicy
      */
     public function edit(User $user, Event $event)
     {
+        dd($event);
         return $event->creator->user_id == $user->id;
     }
 }

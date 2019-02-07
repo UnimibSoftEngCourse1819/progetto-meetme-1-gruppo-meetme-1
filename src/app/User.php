@@ -47,15 +47,4 @@ class User extends Authenticatable
     {
         return $this->hasOne(Company::class);
     }
-/*
-    public function events()
-    {
-        return $this->hasManyThrough(Event::class, Email::class);
-    }
-
-    public function scopeLatest($limit = 5)
-    {
-        return $this->orderBy('created_at', 'DESC')->limit($limit);
-    }
-*/
 }
