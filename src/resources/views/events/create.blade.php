@@ -73,6 +73,7 @@ $(document).ready(function() {
         defaultView: 'agendaWeek',
         eventOverlap: false,
         selectOverlap: false,
+        allDaySlot: false,
         nowIndicator: true,
         businessHours: false,
         editable: true,
