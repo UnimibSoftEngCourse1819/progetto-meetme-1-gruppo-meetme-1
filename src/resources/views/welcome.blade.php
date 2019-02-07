@@ -423,7 +423,7 @@
 								</h1>
 								<p style="color:white;
 										  font-size: 20px;">
-									Un semplice click per partecipare all' evento.
+									Un semplice click <br>per partecipare all' evento.
 								</p>
 							</div>
 						</div>
