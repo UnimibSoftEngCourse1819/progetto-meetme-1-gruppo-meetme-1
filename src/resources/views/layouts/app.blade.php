@@ -44,23 +44,23 @@
             background: white;
         }
         #mobile-menu{
-            height:2.5rem;
+            height: 2.5em;
         }
 
         #menu-mobile-icon{
-            padding-top:2rem;
+            padding-top: 2em;
         }
 
         @media (max-width: 990px) {
             .pusher {
-                padding-top: 10rem;
+                padding-top: 10em;
             }
 
             #desktop-menu {
                 display: none;
             }
             #desktop-content{
-                display:none;
+                display: none;
             }
             #mobile-content{
                 padding-top: -3rem;
@@ -69,14 +69,14 @@
 
         @media (min-width: 991px) {
             .pusher {
-                padding-top: 5rem;
+                padding-top: 5em;
             }
 
             #mobile-menu {
                 display: none;
             }
             #desktop-content{
-                padding-top:1rem;
+                padding-top:1em;
             }
             #mobile-content{
                 display:none;

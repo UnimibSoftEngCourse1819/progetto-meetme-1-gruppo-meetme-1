@@ -97,7 +97,7 @@
 		<div class="parallax" style="background-color:#FDFFFC;
 		                             height:100%">
 			<div class="header-family-content" style="height:100%;">
-				<div class="wow animated" style="visibility: visible;">
+				<div class="wow animated" style="visibility: visible; padding-top:2%">
 					<div style="color:#293347;
 					            margin:3% 10%;">
 						<h1 style="font-size:150%;">
@@ -268,12 +268,12 @@
 
 
 
-		<div class="header-family-content" style="position: absolute;
+		<div class="header-family-content" style="position: relative;
                                                  display: flex;
                                                  background-color: #252e3d;
                                                  align-items: center;
                                                  width: 100%;
-                                                 height: 5%;
+                                                 height: 100px;
                                                  justify-content: center">
 			<div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 				<div>
@@ -325,7 +325,7 @@
 														  height: 100%;
 														  background-color: #516b98;
 														  padding-top: 30%;
-														  padding-bottom: 50%;
+														  padding-bottom: 40%;
 														  align-items: center;
 														  text-align: center;
 														  ">
@@ -335,9 +335,9 @@
 					<div style="/* padding-top:5% */">
 						<div class="ui list" style="color:white;
 												    font-size: 30px;">
-							<div class="item" style="margin: 5% 0 5% 0;"> <h1>Portabilità</h1> assoluta </div>
-							<div class="item"> <h1>Gestione</h1> eventi intuitiva</div>
-							<div class="item"> <h1>Partecipazione</h1> coinvolgente </div>
+							<div class="item" style="margin: 5% 0 20% 0;"> <h1>Portabilità</h1> assoluta </div>
+							<div class="item" style="margin: 20% 0 20% 0;"> <h1>Gestione</h1> eventi intuitiva</div>
+							<div class="item" style="margin: 20% 0 0% 0;"> <h1>Partecipazione</h1> coinvolgente </div>
 						</div>
 					</div>
 				</div>
