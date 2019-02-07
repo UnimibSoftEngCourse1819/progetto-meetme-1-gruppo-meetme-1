@@ -133,11 +133,11 @@
 			</div>
 
 			<!-- circle -->
-			<div class="header-family-content" style="width:100%;margin: 2% 10% 2% 2%">
+			<div class="header-family-content" style="width:100%;margin: 4% 10% 4% 8%">
 				<div class="wow fadeInLeftBig" data-wow-delay="0.5s" data-wow-duration="0.5s">
 					<div class="overImage">
 						<div class="icon" data-target="#box-1">
-							<div class="ui circular segment" style="position:relative; height: 12vw;width:12vw;margin-top:1vw">
+							<div class="ui circular segment" style=" height:180px; width:180px;">
 								<div style="font-size:2vw;">
 									<img src="{{URL::to('img/a.svg')}}">
 								</div>
@@ -148,10 +148,8 @@
 				<div class="wow fadeInLeftBig" data-wow-delay="0s" data-wow-duration="0.5s">
 					<div class="overImage">
 						<div class="icon" data-target="#box-2">
-							<div class="ui circular segment" style="position:relative; height: 12vw;width:12vw; left: 30%;margin-top:1vw">
-								<div style="font-size:2vw;">
-									<img src="{{URL::to('img/b.svg')}}">
-								</div>
+							<div class="ui circular segment" style="position:relative; height:180px; width:180px; left: 30%;">
+								<img src="{{URL::to('img/b.svg')}}">
 							</div>
 						</div>
 					</div>
@@ -159,10 +157,8 @@
 				<div class="wow fadeIn" data-wow-duration="0.5s">
 					<div class="overImage">
 						<div class="icon" data-target="#box-3">
-							<div class="ui circular segment"  style="position:relative; height: 12vw;width:12vw;left:60%;margin-top:1vw">
-								<div style="font-size:2vw; ">
-									<img src="{{URL::to('img/c.svg')}}">
-								</div>
+							<div class="ui circular segment"  style="position:relative; height:180px; width:180px;left:60%;">
+								<img src="{{URL::to('img/c.svg')}}">
 							</div>
 						</div>
 					</div>
