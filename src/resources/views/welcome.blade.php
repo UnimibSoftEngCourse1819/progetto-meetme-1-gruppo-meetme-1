@@ -231,12 +231,12 @@
 							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
 								<h1 style="color:white;
 										  font-size: 30px;" >
-									Non devi cambiare pagina per gestire gli eventi.<br>
+									Non devi cambiare pagina <br>per gestire gli eventi.<br>
 								</h1>
 								<p style="color:white;
 										  font-size: 30px;
 										  padding-top:5%;">
-									Un calendario riassumerà tutte le informazioni relative agli eventi
+									Un calendario riassumerà tutte le informazioni relative degli eventi<br>
 									a cui vuoi partecipare.
 								</p>
 							</div>
@@ -359,7 +359,7 @@
 																	  display: flex;
 																	  align-items: center;
 																	  justify-content: center;">
-								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/smart.png" style="border-radius: 10px 10px;width:200px;">
+								<img src="{{'img/smart.png'}}" style="border-radius: 10px 10px;width:200px;">
 							</div>
 							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
 								<h1 style="color:white;
@@ -380,7 +380,7 @@
 																	  display: flex;
 																	  align-items: center;
 																	  justify-content: center;">
-								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/calendar.png" style="border-radius: 10px 10px; ">
+								<img src="{{'img/calendar.png'}}" style="border-radius: 10px 10px; ">
 							</div>
 							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
 								<h1 style="color:white;
@@ -401,7 +401,7 @@
 																	  align-items: center;
 																	  justify-content: center;
 																	  ">
-								<img src="http://localhost/progetto-meetme-1-gruppo-meetme-1/src/public/img/like.png" style="border-radius: 10px 10px;width:350px;">
+								<img src="{{'img/like.png'}}" style="border-radius: 10px 10px;width:350px;">
 							</div>
 							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
 								<h1 style="color:white;
@@ -422,17 +422,17 @@
 
 
 
-		<div class="header-family-content" style="position: absolute;
+		<div class="header-family-content" style="position: relative;
                                                  display: flex;
                                                  background-color: #252e3d;
                                                  align-items: center;
                                                  width: 100%;
-                                                 height: 5%;
+                                                 height: 100px;
                                                  justify-content: center">
 			<div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 				<div>
 					<p style="color:white;
-                                  font-size: 1vw;">
+                              font-size: 1vw;">
 						Made with <i class="creative commons icon"></i> in Italy
 					</p>
 				</div>
