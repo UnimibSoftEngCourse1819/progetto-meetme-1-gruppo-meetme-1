@@ -26,7 +26,7 @@
                             <i class="calendar alternate icon"></i>
 
                             <div class="content">
-                                <li> <h5 class="ui header">{{ $event->title }} </h5>  {{ (new \Carbon\Carbon($event->created_at))->diffForHumans() }}</li>
+                                <li> <a class="ui header" style="color:black!important" href="{{url('surveys')}}/{{$event->event_id}}">{{ $event->title }} </a>  {{ (new \Carbon\Carbon($event->created_at))->diffForHumans() }}</li>
                             </div>
                         </div>
                     @endforeach
@@ -64,7 +64,7 @@
                             </div>
                             <i class="calendar alternate icon"></i>
                             <div class="content">
-                                <li> <h5 class="ui header">{{ $owned->title }} </h5> {{ (new \Carbon\Carbon($owned->created_at))->diffForHumans() }}</li>
+                                <li> <a class="ui header" style="color:black!important" href="{{url('surveys')}}/{{$owned->id}}">{{ $owned->title }} </a> {{ (new \Carbon\Carbon($owned->created_at))->diffForHumans() }}</li>
                             </div>
                         </div>
                     @endforeach
@@ -77,4 +77,17 @@
         <div class="ui vertical divider"> 0 </div>
     </div>
 </div>
+@endsection
+
+@section('custom-styles')
+<style type="text/css">
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    a:hover{
+        text-decoration: none;
+        color: black;
+    }
+</style>
 @endsection
