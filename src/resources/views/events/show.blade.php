@@ -8,7 +8,7 @@
         </div>
     @endif
 
-    @if (session('unregistered'))
+    @if (session('unregistered') && session('unregistered')->isNotEmpty())
         <div class="ui error message">
             <div class="header">
                 There were some errors inviting some partecipants

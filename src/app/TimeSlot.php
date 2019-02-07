@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +14,7 @@ class TimeSlot extends Model
      * @var array
      */
     protected $fillable = [
-        'from', 'to'
+        'from', 'to', 'event_id'
     ];
 
     /**
@@ -81,6 +82,6 @@ class TimeSlot extends Model
      */
     private function parseIso8601Date($value)
     {
-        return Carbon::createFromFormat('Y-m-d\TH:i:s', $value)->toDateTimeString();
+        return Carbon::createFromFormat('Y-m-d H:i:s.u\Z', $value)->toDateTimeString();
     }
 }

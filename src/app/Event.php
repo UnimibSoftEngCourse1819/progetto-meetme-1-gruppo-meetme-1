@@ -23,7 +23,7 @@ class Event extends Model
      * @var array
      */
     protected $casts = [
-        'public' => 'boolean',
+        // 'public' => 'boolean',
         'from' => 'datetime',
         'to' => 'datetime',
         'ended_at' => 'datetime'
@@ -72,5 +72,10 @@ class Event extends Model
     public function latest()
     {
         return $this->orderBy('created_at', 'desc');
+    }
+
+    public function setPublicAttribute($value)
+    {
+        $this->attributes['public'] = (int)(bool) $value;
     }
 }

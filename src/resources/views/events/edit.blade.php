@@ -6,8 +6,9 @@
 
 @section('content')
     <div class="ui text container">
-        <form method="POST" class="ui form" action="{{ route('events.update', ['event' => $event->id]) }}" id="event-form">
+        <form class="ui form" method="POST" action="{{ route('events.update', ['event' => $event->id]) }}" id="event-form">
             @csrf
+            @method('PATCH')
 
             <div class="ui three top attached steps">
                 <div class="active step" id="event-details-step" data-step="#step-one">
@@ -157,8 +158,8 @@
                 $events.each(function (index, e) {
                     var event = {
                         title: e.title,
-                        start: e.start.toISOString(),
-                        end: e.end.toISOString()
+                        start: e.start.utc().format('YYYY-MM-DD HH:mm:ss.SSS[Z]'),
+                        end: e.end && e.end.format('YYYY-MM-DD HH:mm:ss.SSS[Z]')
                     };
 
                     $form.append('<input type="hidden" name="events[]" value=\'' + JSON.stringify(event) + '\'>');

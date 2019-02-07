@@ -142,8 +142,8 @@ $(document).ready(function() {
         $events.each(function (index, e) {
             var event = {
                 title: e.title,
-                start: e.start.toISOString(),
-                end: e.end.toISOString()
+                start: e.start.utc().format('YYYY-MM-DD HH:mm:ss.SSS[Z]'),
+                end: e.end && e.end.format('YYYY-MM-DD HH:mm:ss.SSS[Z]')
             };
 
             $form.append('<input type="hidden" name="events[]" value=\'' + JSON.stringify(event) + '\'>');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\Email;
 use App\TimeSlot;
+use App\Mail\EventUpdated;
 use Illuminate\Http\Request;
 use App\Mail\EventInvitation;
 use Illuminate\Support\Facades\Mail;
@@ -155,7 +156,7 @@ class EventsController extends Controller
      */
     public function edit(Event $event)
     {
-        $this->authorized('own', $event);
+        $this->authorize('edit', $event);
         return view('events.edit', compact('event'));
     }
 
@@ -168,12 +169,39 @@ class EventsController extends Controller
      */
     public function update(EventCreationRequest $request, Event $event)
     {
-        $this->authorized('edit', $event);
+        $this->authorize('edit', $event);
 
+        // Update event data
         $event->update(request(['title', 'description', 'public']));
 
+        $timeslots = $this->fetchTimeslotsAndPersistNew(request('events'), $event);
+        $event->timeslots()->whereNotIn('id', $timeslots->pluck('id'))->delete();
+        $event->timeslots()->saveMany($timeslots);
 
-        $timeslots = collect(request('events'))->map(function ($timeslot) use ($event) {
+        $partecipants = collect(request('partecipants'))->map(function ($email) {
+            return (Email::where('email', $email)->first()) ?: $email;
+        });
+
+        $registered = $partecipants->filter(function ($model) {
+            return $model instanceof Email;
+        });
+        $unregistered = $partecipants->filter(function ($model) {
+            return ! ($model instanceof Email);
+        });
+
+        $event->partecipants()->sync($registered->pluck('id'));
+
+        $registered->each(function ($email) use ($event) {
+            return Mail::to($email)->send(new EventUpdated(auth()->user(), $event));
+        });
+
+        return redirect()->route('events.show', ['event' => $event->id])
+            ->with('unregistered', $unregistered);
+    }
+
+    private function fetchTimeslotsAndPersistNew($request, $event)
+    {
+        return collect($request)->map(function ($timeslot) use ($event) {
             $data = json_decode($timeslot);
 
             $conditions = [
@@ -181,11 +209,12 @@ class EventsController extends Controller
                 ['to', $data->end]
             ];
 
-            return (TimeSlot::where($conditions)->first()) ?: $timeslot;
+            return TimeSlot::where($conditions)->firstOrCreate([
+                'from' => $data->start,
+                'to' => $data->end,
+                'event_id' => $event->id
+            ]);
         });
-
-        dd($timeslots);
-
     }
 
     /**

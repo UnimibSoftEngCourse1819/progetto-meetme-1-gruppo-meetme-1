@@ -23,8 +23,10 @@ class PartecipantsController extends Controller
      */
     public function destroy(Event $event, Email $email)
     {
-        $this->authorize('own', $email);
         $this->authorize('edit', $event);
+        if ($event->creator->user_id != auth()->user()->id) {
+            $this->authorize('own', $email);
+        }
 
         $event->partecipants()->detach($email->id);
 
