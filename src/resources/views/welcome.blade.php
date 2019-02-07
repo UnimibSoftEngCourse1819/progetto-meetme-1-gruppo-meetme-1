@@ -28,7 +28,6 @@
 
 	.parallax .second{
 		width: 100%;
-		background-image: url("{{ asset('img/wall6.jpg') }}");
 		background-size: cover;
 		background-attachment: fixed;
 		background-position: center;
@@ -193,7 +192,7 @@
 		</div>
 
 		<div class="parallax">
-			<div class="second">
+			<div class="second" style="	background-image: url({{ asset('img/wall6.jpg') }}); ">
 				<div class="ui container" style="display: flex; align-items: center;">
 					<div style="position: relative;
 								display: flex;
@@ -247,7 +246,7 @@
 																	  align-items: center;
 																	  justify-content: center;
 																	  ">
-								<img src="{{ asset('img/like.png') }}" style="border-radius: 10px 10px;width:350px;">
+								<img src="{{ asset('img/like-mobile.png') }}" style="border-radius: 10px 10px;width:350px;">
 							</div>
 							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
 								<h1 style="color:white;
@@ -275,10 +274,10 @@
                                                  width: 100%;
                                                  height: 100px;
                                                  justify-content: center">
-			<div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+			<div class="wow fadeInDown" style="visibility: visible;">
 				<div>
 					<p style="color:white;
-                                  font-size: 1vw;">
+                                  font-size: 20px">
 						Made with <i class="creative commons icon"></i> in Italy
 					</p>
 				</div>
@@ -290,7 +289,7 @@
 
 	<!-- mobile -->
 	<div class="content" id="mobile-content">
-		<div class="parallax" style="background-color:#FDFFFC;height: 100%;">
+		<div class="parallax" >
 			<div class="header-family-content" id="a" style="text-align: center; padding-top:30%;">
 				<div class="wow" >
 					<div class="wow zoomIn" style="color:#293347">
@@ -311,7 +310,7 @@
 			</div>
 
 			<div class="header-family-content" style="position: relative;
-													  margin: 23% 0% 0% 0%;">
+													  margin: 43% 0% 0% 0%;">
 				<div class="wow fadeInUp" data-wow-delay="1s" style="visibility: visible;
 																	 animation-delay: 1s;
 																	 animation-name: fadeInUp;">
@@ -320,15 +319,15 @@
 			</div>
 		</div>
 
-		<div class="header-family-content section" style="
+		<div class="header-family-content section" style="margin-top:0%;
 														  width: 100%;
 														  height: 100%;
 														  background-color: #516b98;
 														  padding-top: 30%;
-														  padding-bottom: 40%;
+														  padding-bottom: 45%;
 														  align-items: center;
 														  text-align: center;
-														  ">
+														  justify-content: center;">
 			<div class="ui container" style="display: flex; align-items: center;">
 				<!-- preview -->
 				<div class="text" style="flex: 1;">
@@ -347,71 +346,84 @@
 		</div>
 
 		<div class="parallax">
-			<div class="second">
-				<div class="ui container" style="display: flex; align-items: center;">
+			<div class="second" 	style="background-image: url({{ asset('img/wall6.jpg') }}); ">
+				<div class="ui container" style="align-items: center;">
 					<div style="position: relative;
-								display: flex;
-								padding: 5%;
+
 								align-items: center;
 								justify-content: center;">
-						<div class="box" id="box-1" style="background-color:transparent" >
+						<div style="background-color:transparent" >
 							<div class="header-family-content" style="position: relative;
-																	  display: flex;
+																	  padding-top:30%;
 																	  align-items: center;
 																	  justify-content: center;">
-								<img src="{{'img/smart.png'}}" style="border-radius: 10px 10px;width:200px;">
+								<img src="{{asset('img/portable.png')}}" style="width:150px">
+
 							</div>
-							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
+							<div style="justify-content: center; text-align: center; padding-top:5% ">
 								<h1 style="color:white;
 										  font-size: 30px;" >
 									Monitora i sondaggi  mentre sei in movimento
 								</h1>
 								<p style="color:white;
-										  font-size: 30px;
-										  padding-top:5%;">
+										  font-size: 20px;">
 									Ricevi notifiche sulle attività recenti.
-									L'app MeetMe è gratuita e funziona senza problemi<br> su tutti i dispositivi principali.
+									L'app MeetMe è gratuita e funziona senza problemi su tutti i dispositivi principali.
 								</p>
 							</div>
 						</div>
+					</div>
 
-						<div class="box active " id="box-2" >
+
+							<!-- -->
+					<div class="ui container" style=" align-items: center;">
+						<div style="position: relative;
+
+							align-items: center;
+							justify-content: center;">
 							<div class="header-family-content" style="position: relative;
-																	  display: flex;
+																	  padding-top:30%;
 																	  align-items: center;
 																	  justify-content: center;">
-								<img src="{{'img/calendar.png'}}" style="border-radius: 10px 10px; ">
+								<img src="{{asset('img/calendar-mobile.png')}}">
+
 							</div>
-							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
+							<div style="justify-content: center;text-align: center; padding-top:5% ">
 								<h1 style="color:white;
 										  font-size: 30px;" >
-									Non devi cambiare pagina per gestire gli eventi.<br>
+									Gestione smart <br>degli eventi.
 								</h1>
 								<p style="color:white;
-										  font-size: 30px;
-										  padding-top:5%;">
+										  font-size: 20px;">
 									Un calendario riassumerà tutte le informazioni relative agli eventi
 									a cui vuoi partecipare.
 								</p>
 							</div>
 						</div>
-						<div class="box" id="box-3">
+					</div>
+				</div>
+						<!-- -->
+				<div class="ui container" style=" align-items: center;padding-bottom: 20%">
+					<div style="position: relative;
+
+								align-items: center;
+								justify-content: center;">
+						<div>
 							<div class="header-family-content" style="position: relative;
-																	  display: flex;
+																	  padding-top:30%;
 																	  align-items: center;
 																	  justify-content: center;
 																	  ">
-								<img src="{{'img/like.png'}}" style="border-radius: 10px 10px;width:350px;">
+								<img src="{{asset('img/like-mobile.png')}}" style="width:115px">
 							</div>
-							<div style="padding: 15px 20px;display:flex; flex-direction: column; justify-content: center ">
+							<div style="justify-content: center;text-align: center; padding-top:5%  ">
 								<h1 style="color:white;
 										  font-size: 30px;" >
 									ILike
 								</h1>
 								<p style="color:white;
-										  font-size: 30px;
-										  padding-top:10%;">
-									Un semplice click per partecipare all' evento.
+										  font-size: 20px;">
+									Un semplice click <br>per partecipare all' evento.
 								</p>
 							</div>
 						</div>
@@ -423,16 +435,15 @@
 
 
 		<div class="header-family-content" style="position: relative;
-                                                 display: flex;
                                                  background-color: #252e3d;
                                                  align-items: center;
                                                  width: 100%;
-                                                 height: 100px;
+                                                 height: 60px;
                                                  justify-content: center">
-			<div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+			<div class="wow fadeInRight" style="visibility: visible;">
 				<div>
 					<p style="color:white;
-                              font-size: 1vw;">
+                              font-size:20px ">
 						Made with <i class="creative commons icon"></i> in Italy
 					</p>
 				</div>
