@@ -36,8 +36,10 @@ class SurveysController extends Controller
         $auth_partecipants = $partecipants->where('id',auth()->user());
 
         //$voters = $time_slots->pluck('voters')->flatten();//si ritornano gli utenti che sono iscritti all evento
+
         $survey->load('timeslots.voters');
-        return view('surveys.show', compact('time_slots', "survey", 'partecipants','auth_partecipants'));
+        $time_slot_count = $survey->timeslots()->withCount('voters')->orderBy('voters_count', 'desc')->having('voters_count', '<>', 0)->first();
+        return view('surveys.show', compact('time_slots', 'survey', 'partecipants','auth_partecipants', 'time_slot_count'));
     }
 
     /**
