@@ -107,7 +107,7 @@
 				</div>
 
 				<div class="header-family-content" style="position: relative;
-														  margin: 13% 0% 0% 0%;
+														  margin: 16% 0% 0% 0%;
 														  ">
 					<div class="wow fadeInUpBig" data-wow-delay="1s">
 						<img src="{{URL::to('img/MeetMe1.png')}}" style="width:100%;">
