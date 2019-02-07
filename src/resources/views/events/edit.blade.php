@@ -73,8 +73,6 @@
             var $partecipantList = $('#partecipant-list');
             var $partecipantEmail = $('#partecipant-email');
 
-            $('.ui.calendar').calendar();
-
             $('#step-two, #step-three').hide();
 
             $calendar.fullCalendar({
